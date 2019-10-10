@@ -31,12 +31,12 @@ public class Student implements Serializable
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
 	}
-	void writeDetails(String name)
+	/*void writeDetails(String name)
 	{
 		new File("iiitv\\student").mkdir();
 		new File("iiitv\\student\\"+batch).mkdir();
 		new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdir();
-	}
+	}*/
 	public void writeDetails()throws IOException
 	{
 		new File("iiitv\\student").mkdir();
@@ -48,14 +48,14 @@ public class Student implements Serializable
 	}
 	public Student getStudent(int rollNo)throws IOException,ClassNotFoundException
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+rollNo+"\\details.iiitv");
+		FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		Student obj=(Student)ois.readObject();
 		return obj;
 	}
 	public void readDetails(int roll)throws IOException,ClassNotFoundException
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+rollNo+"\\details.iiitv");
+		FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+roll+"\\details.iiitv");
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		Student obj=(Student)ois.readObject();
 		display(obj);
