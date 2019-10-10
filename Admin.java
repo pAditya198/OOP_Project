@@ -13,17 +13,12 @@ public class Admin
 		d.close();
 		fout.close();
 	}
-	void assignRollNo(int batch)throws IOException,FileNotFoundException,ClassNotFoundException
+	void assignRollNo(Students students[])throws IOException,FileNotFoundException,ClassNotFoundException
 	{
 		FileInputStream fin=new FileInputStream("iiitv\\student\\"+batch+"\\Number.iiitv");
 		DataInputStream f=new DataInputStream(fin);
 		int number=f.readInt();
 		System.out.println(number);
-		Student temp=new Student(batch);
-		Student students[]=new Student[number];
-		for(int i=0;i<number;i++)
-			students[i]=temp.getStudent(batch*100000+i+51001);
-		
 		for(int i=0;i<number;i++)
 		{
 			for(int j=0;j<number-i-1;j++)
@@ -72,7 +67,7 @@ public class Admin
 		int batch=0;
 		Students students[]=new Students[number];
 		for(int i=0;i<number;i++)
-			batch=addStudent();
+			students[i]=addStudent();
 		writeNoOfStudents(number,batch);
 		return batch;
 	}
