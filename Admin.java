@@ -14,7 +14,7 @@ public class Admin
 		d.close();
 		fout.close();
 	}
-	private int readNoOfStudents(int batch)throws IOException,FileNotFoundException
+	public int readNoOfStudents(int batch)throws IOException,FileNotFoundException
 	{
 		try
 		{
