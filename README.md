@@ -37,7 +37,7 @@ The complexity of result management and attendence can sometime create havoc, wi
 
 <hr>
 
-### *Refernces*
+### *References*
 
 Java Documentation [click here](https://docs.oracle.com/en/java/)
 
