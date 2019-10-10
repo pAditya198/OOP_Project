@@ -14,7 +14,7 @@ public class Admin
 		d.close();
 		fout.close();
 	}
-	private int readNoOfStudents(int batch)throws IOException,FileNotFoundException
+	public int readNoOfStudents(int batch)throws IOException,FileNotFoundException
 	{
 		try
 		{
@@ -53,13 +53,10 @@ public class Admin
 	void assignRollNo(int batch)throws IOException,FileNotFoundException,ClassNotFoundException
 	{
 		int number=readNoOfStudents(batch);
-		System.out.println("Error");
 		Student students[]=new Student[number];
 		for(int i=0;i<number;i++)
 		{
 			students[i]=tempReadStudent(batch,i);
-			students[i].readDetails(i);
-			System.out.println("Error\n\n");
 		}
 		
 		for(int i=0;i<number;i++)
@@ -91,8 +88,11 @@ public class Admin
 		int number=readNoOfStudents(batch);
 		Student t=new Student(batch);
 		for(int i=0;i<number;i++)
-			t.readDetails(i);
-		//t.readDetails(batch*100000+i+51001);
+		{
+			System.out.println();
+			t.readDetails(batch*100000+i+51001);
+			System.out.println();
+		}
 	}
 	private Student addStudent(int batch)
 	{
