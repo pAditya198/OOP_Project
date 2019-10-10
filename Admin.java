@@ -82,6 +82,7 @@ public class Admin
 		for(Student t:students)
 		{
 			t.writeRollNo(t.getBatch()*100000+i+51000);
+			t.writeDetails();
 			i++;
 		}
 	}
