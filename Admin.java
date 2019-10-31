@@ -52,6 +52,11 @@ public class Admin
 	}
 	void assignRollNo(int batch)throws IOException,FileNotFoundException,ClassNotFoundException
 	{
+		if(!checkStatus(batch))
+			return;
+		FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
+		DataOutputStream w=new DataOutputStream(fout);
+		w.writeInt(0);
 		int number=readNoOfStudents(batch);
 		Student students[]=new Student[number];
 		for(int i=0;i<number;i++)
@@ -100,20 +105,59 @@ public class Admin
 		obj.addDetails();
 		return obj;
 	}
+	boolean checkStatus(int batch)throws IOException
+	{
+		try
+		{
+			FileInputStream fin=new FileInputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
+			DataInputStream r=new DataInputStream(fin);
+			int status=r.readInt();
+			return (status==1)?true:false;
+		}
+		catch(FileNotFoundException E)
+		{
+			new File("iiitv\\student").mkdir();
+			new File("iiitv\\student\\"+batch).mkdir();
+			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
+			DataOutputStream w=new DataOutputStream(fout);
+			w.writeInt(1);
+			return true;
+		}
+	}
 	int addStudents()throws IOException
 	{
 		System.out.print("Enter number of students: ");
 		int number=in.nextInt();
 		System.out.print("Enter batch of students: ");
 		int batch=in.nextInt();
-		int previous=readNoOfStudents(batch);
-		Student students[]=new Student[number];
-		for(int i=0;i<number;i++)
+		if(!checkStatus(batch))
 		{
-			students[i]=addStudent(batch);
-			tempWriteStudent(students[i],i+previous);
+			int previous=readNoOfStudents(batch);
+			Student students[]=new Student[number];
+			for(int i=0;i<number;i++)
+			{
+				new File("iiitv\\student\\"+batch+"\\"+(batch*100000+i+51000+previous)).mkdir();
+				students[i]=addStudent(batch);
+				students[i].writeRollNo(batch*100000+i+51001+previous);
+				students[i].writeDetails();
+			}
+			writeNoOfStudents(number,batch);
 		}
-		writeNoOfStudents(number,batch);
+		else
+		{
+			int previous=readNoOfStudents(batch);
+			Student students[]=new Student[number];
+			for(int i=0;i<number;i++)
+			{
+				students[i]=addStudent(batch);
+				tempWriteStudent(students[i],i+previous);
+			}
+			writeNoOfStudents(number,batch);
+		}
 		return batch;
+	}
+	void addProfessor()
+	{
+		
 	}
 }

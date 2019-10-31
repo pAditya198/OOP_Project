@@ -31,17 +31,9 @@ public class Student implements Serializable
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
 	}
-	/*void writeDetails(String name)
-	{
-		new File("iiitv\\student").mkdir();
-		new File("iiitv\\student\\"+batch).mkdir();
-		new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdir();
-	}*/
 	public void writeDetails()throws IOException
 	{
-		new File("iiitv\\student").mkdir();
-		new File("iiitv\\student\\"+batch).mkdir();
-		new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdir();
+		new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdirs();
 		FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(this);
@@ -81,6 +73,10 @@ public class Student implements Serializable
 		if(status)
 			status=!status;
 		return status;
+	}
+	public int getRollNo()
+	{
+		return this.rollNo;
 	}
 	public void writeRollNo(int rollNo)
 	{
