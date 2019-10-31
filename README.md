@@ -10,7 +10,6 @@ This project is a part of our semester evaluation program.
 This will cover all the fundamental topics of Object oriented programming.
 
 We'll be using Java to cover all basic OOP concepts.
-Database Management - Firebase.
 UI - Java Swing.
 
 ```
@@ -41,6 +40,13 @@ The complexity of result management and attendence can sometime create havoc, wi
 
 Java Documentation [click here](https://docs.oracle.com/en/java/)
 
-Firebase Documentation [click here](https://firebase.google.com/docs)
-
 Java Swing Documentation [click here](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
+
+### *What all has been done till now*
+
+1. Created Student class for making student objects
+2. Created Professor class for making professor objects
+3. Made basic attendance management system, have to refine
+4. Made admin module CLI, to be updated
+5. Made basic teacherModule
+
