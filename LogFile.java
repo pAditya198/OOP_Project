@@ -19,3 +19,4 @@ public class LogFile<Type>
 			FileOutputStream ob=new FileOutputStream(f,true);
 	}
 }
+}
