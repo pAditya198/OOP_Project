@@ -11,6 +11,7 @@ public class Student implements Serializable
 	private String Addr;
 	private String contactNo;
 	private String password;
+	
 	Student(int batch)
 	{
 		rollNo=-1;

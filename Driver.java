@@ -11,7 +11,7 @@ public class Driver
 		//ob.displayStudents(2018);
 		Student ob=new Student(2018);
 		Student ob1=ob.getStudent(201851002);
-		
+		System.out.println(ob1.getRollNo());
 		/*TeacherModule ob=new TeacherModule();
 		//ob.addSubject();
 		//ob.updateAttendance("HS201");
