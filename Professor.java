@@ -8,6 +8,7 @@ public class Professor implements Serializable
 	private String courses[];
 	private int courseNo;
 	private String contactNo;
+	private String password;
 	Professor()
 	{
 		name="";
@@ -23,6 +24,8 @@ public class Professor implements Serializable
 		details=in.nextLine();
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
+		System.out.println("Enter password");
+		password=in.nextLine();
 		UID=createUID(name);
 	}
 	public void assignCourses(String course[])throws IOException
@@ -107,6 +110,14 @@ public class Professor implements Serializable
 	int getCourseNo()
 	{
 		return courseNo;
+	}
+	String[] getCourses()
+	{
+		return courses;
+	}
+	String getPass()
+	{
+		return password;
 	}
 	void getUID()
 	{
