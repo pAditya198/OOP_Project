@@ -39,7 +39,6 @@ public class LoginPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Page");
         setBackground(new java.awt.Color(51, 51, 51));
-        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
@@ -51,7 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("User Name :");
+        jLabel2.setText("Unique ID :");
 
         jCheckBox1.setText("Show Password");
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
