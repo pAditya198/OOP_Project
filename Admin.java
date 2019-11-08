@@ -36,18 +36,20 @@ public class Admin
 	}
 	private void tempWriteStudent(Student obj,int index)throws IOException
 	{
-		new File("iiitv\\student").mkdir();
-		new File("iiitv\\student\\"+obj.getBatch()).mkdir();
-		new File("iiitv\\student\\"+obj.getBatch()+"\\"+index).mkdir();
+		new File("iiitv\\student\\"+obj.getBatch()+"\\"+index).mkdirs();
 		FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+obj.getBatch()+"\\"+index+"\\details.iiitv");
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(obj);
 	}
 	private Student tempReadStudent(int batch,int index)throws IOException,FileNotFoundException,ClassNotFoundException
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+index+"\\details.iiitv");
+		FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+index+"\\details.iiitv");
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		Student obj=(Student)ois.readObject();
+		File file = new File("iiitv\\student\\"+batch+"\\"+index+"\\details.iiitv");
+		file.delete();
+		file = new File("iiitv\\student\\"+batch+"\\"+index);
+		file.delete();
 		return obj;
 	}
 	void assignRollNo(int batch)throws IOException,FileNotFoundException,ClassNotFoundException
@@ -156,7 +158,7 @@ public class Admin
 		}
 		return batch;
 	}
-	void addProfessor()
+	public void registerStudentCourse()
 	{
 		
 	}
