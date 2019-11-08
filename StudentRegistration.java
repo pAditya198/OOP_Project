@@ -55,7 +55,7 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Personal Details\n "));
 
-        jLabel1.setText("Name :");
+        jLabel1.setText("Name : ");
 
         jLabel2.setText("Programme :");
 
