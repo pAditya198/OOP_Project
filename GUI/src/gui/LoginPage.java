@@ -39,6 +39,8 @@ public class LoginPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Page");
         setBackground(new java.awt.Color(51, 51, 51));
+        setLocation(new java.awt.Point(600, 250));
+        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
