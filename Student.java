@@ -21,6 +21,7 @@ public class Student implements Serializable
 		Addr="";
 		contactNo="";
 		status=true;
+		password="";
 	}
 	public void addDetails()
 	{
@@ -31,7 +32,7 @@ public class Student implements Serializable
 		Addr=in.nextLine();
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
-		System.out.print("Enter password");
+		System.out.print("Enter password: ");
 		password=in.nextLine();
 	}
 	public void writeDetails()throws IOException
