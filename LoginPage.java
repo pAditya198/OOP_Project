@@ -43,8 +43,10 @@ public class LoginPage extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Page");
-        setBackground(new java.awt.Color(51, 51, 51));
+        setLocation(new java.awt.Point(600, 250));
+        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
+
         setType(java.awt.Window.Type.POPUP);
 
         jLabel1.setText("Password :");
@@ -123,17 +125,13 @@ public class LoginPage extends JFrame {
         String pas = new String(password);
 
         try {
-            /*if (userName.length() == 6) {
-                Admin ob = new Admin();
-                ob = ob.getAdmin(userName);
-                if (pas.equals(ob.getPass)) {
-
-                } else {
-                    javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
-                    T1.setText("");
-                    P1.setText("");
-                }
-            } else*/ if (userName.length() == 9) {
+            /*
+             * if (userName.length() == 6) { Admin ob = new Admin(); ob =
+             * ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
+             * 
+             * } else { javax.swing.JOptionPane.showMessageDialog(this,
+             * "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } } else
+             */ if (userName.length() == 9) {
                 int batch = Integer.parseInt(userName.substring(0, 4));
 
                 Student ob = new Student(batch);
@@ -152,16 +150,12 @@ public class LoginPage extends JFrame {
                     T1.setText("");
                     P1.setText("");
                 }
-            } /*else if (userName.length() == 6) {
-                Professor ob = new Professor();
-                ob = ob.getProfessor(userName);
-                if (pas.equals(ob.getPass)) {
-                } else {
-                    javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
-                    T1.setText("");
-                    P1.setText("");
-                }
-            }*/
+            } /*
+               * else if (userName.length() == 6) { Professor ob = new Professor(); ob =
+               * ob.getProfessor(userName); if (pas.equals(ob.getPass)) { } else {
+               * javax.swing.JOptionPane.showMessageDialog(this,
+               * "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } }
+               */
 
             else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
