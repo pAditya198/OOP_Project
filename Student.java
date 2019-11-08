@@ -10,6 +10,7 @@ public class Student implements Serializable
 	private String Name;
 	private String Addr;
 	private String contactNo;
+	private String password;
 	Student(int batch)
 	{
 		rollNo=-1;
@@ -30,6 +31,8 @@ public class Student implements Serializable
 		Addr=in.nextLine();
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
+		System.out.print("Enter password");
+		password=in.nextLine();
 	}
 	public void writeDetails()throws IOException
 	{
@@ -85,5 +88,9 @@ public class Student implements Serializable
 	public String getName()
 	{
 		return Name;
+	}
+	public String getPass()
+	{
+		return password;
 	}
 }	
