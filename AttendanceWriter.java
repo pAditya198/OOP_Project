@@ -15,7 +15,7 @@ public class AttendanceWriter
 				s=i;
 				break;
 			}
-		}
+		}  
 		int x=0,y=0;
 		for(int i=10;i<s.length();i+=2)
 		{
