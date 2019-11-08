@@ -5,8 +5,7 @@ public class Admin
 	static Scanner in=new Scanner(System.in);
 	private void writeNoOfStudents(int number,int batch)throws IOException
 	{
-		new File("iiitv\\student").mkdir();
-		new File("iiitv\\student\\"+batch).mkdir();
+		new File("iiitv\\student\\"+batch).mkdirs();
 		int newno = number+readNoOfStudents(batch);
 		FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\Number.iiitv");
 		DataOutputStream d=new DataOutputStream(fout);
