@@ -9,14 +9,14 @@ public class Semester
 		FileWriter cs = null;
 		try
 		{
-			FileReader f=new FileReader("iiitv/Semester/"+sem+"/"+subjectCode+".csv");
-			cs=new FileWriter("iiitv/Semester/"+sem+"/"+subjectCode+".csv",true);
+			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+".csv");
+			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+".csv",true);
 		}
 		catch(FileNotFoundException e)
 		{
 			System.out.println("XYZ");
 			new File("iiitv/Semester/"+sem).mkdirs();
-			cs=new FileWriter("iiitv/Semester/"+sem+"/"+subjectCode+".csv",true);
+			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+".csv",true);
 			cs.append("ID,\n");
 		}
 		cs.append(rollNo+",\n");

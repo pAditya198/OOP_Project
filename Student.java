@@ -15,6 +15,7 @@ public class Student implements Serializable
 	private String password;
 	private String courses[];
 	private String gender;
+	private String DoB;
 	private int courseNo;
 	Student(int batch)
 	{
@@ -28,12 +29,13 @@ public class Student implements Serializable
 		status=true;
 		password="";
 	}
-	public void addDetails(String nm, String addr, String cont, String G,String prog, String BG,String pass)
+	public void addDetails(String nm, String addr,String DB,String cont, String G,String prog, String BG,String pass)
 	{
 		Name=nm;
 		Addr=addr;
 		contactNo=cont;
 		gender=G;
+		DoB=DB;
 		Programme=prog;
 		BloodGr=BG;
 		password=pass;
