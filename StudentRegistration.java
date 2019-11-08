@@ -65,7 +65,7 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jLabel5.setText("Contact Number :");
 
-        jLabel6.setText("Grender :");
+        jLabel6.setText("Gender :");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

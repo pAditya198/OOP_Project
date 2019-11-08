@@ -9,9 +9,12 @@ public class Student implements Serializable
 	private double SPI;
 	private String Name;
 	private String Addr;
+	private String BloodGr;
+	private String Programme;
 	private String contactNo;
 	private String password;
 	private String courses[];
+	private String gender;
 	private int courseNo;
 	Student(int batch)
 	{
@@ -25,17 +28,15 @@ public class Student implements Serializable
 		status=true;
 		password="";
 	}
-	public void addDetails()
+	public void addDetails(String nm, String addr, String cont, String G,String prog, String BG,String pass)
 	{
-		Scanner in=new Scanner(System.in);
-		System.out.print("Enter Name: ");
-		Name=in.nextLine();
-		System.out.print("Enter Address: ");
-		Addr=in.nextLine();
-		System.out.print("Enter Contact Number: ");
-		contactNo=in.nextLine();
-		System.out.print("Enter password: ");
-		password=in.nextLine();
+		Name=nm;
+		Addr=addr;
+		contactNo=cont;
+		gender=G;
+		Programme=prog;
+		BloodGr=BG;
+		password=pass;
 	}
 	public void addCourses(String course[])throws IOException
 	{
@@ -132,6 +133,18 @@ public class Student implements Serializable
 	public String getContactNo()
 	{
 		return contactNo;
+	}
+	public String getBloodGr()
+	{
+		return BloodGr;
+	}
+	public String getProgramme()
+	{
+		return Programme;
+	}
+	public String getGender()
+	{
+		return gender;
 	}
 	public String getPass()
 	{
