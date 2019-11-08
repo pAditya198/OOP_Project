@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Admin
+public class AdminModule
 {
 	static Scanner in=new Scanner(System.in);
 	private void writeNoOfStudents(int number,int batch)throws IOException
