@@ -24,7 +24,7 @@ public class Professor implements Serializable
 		details=in.nextLine();
 		System.out.print("Enter Contact Number: ");
 		contactNo=in.nextLine();
-		System.out.println("Enter password");
+		System.out.println("Enter password: ");
 		password=in.nextLine();
 		UID=createUID(name);
 	}
