@@ -124,7 +124,7 @@ public class LoginPage extends javax.swing.JFrame {
             char[] password = P1.getPassword();
             String pas = new String(password);
             if (s.equals("student") && pas.equals("student")){
-                Student F = new Student();
+                StudentGUI F = new StudentGUI();
                 F.setVisible(true);
             }
             else if (s.equals("teacher") && pas.equals("12345")){
