@@ -89,6 +89,14 @@ public class Student implements Serializable
 	{
 		return Name;
 	}
+	public String getAddr()
+	{
+		return Addr;
+	}
+	public String getContactNo()
+	{
+		return contactNo;
+	}
 	public String getPass()
 	{
 		return password;
