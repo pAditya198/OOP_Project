@@ -92,12 +92,13 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         AdminModule ob=new AdminModule();
-        int number = Integer.parseInt(jTextField1.getText());
-        int batch = Integer.parseInt(jTextField2.getText());
+        int batch = Integer.parseInt(jTextField1.getText());
+        int number = Integer.parseInt(jTextField2.getText());
         try {
             ob.addStudents(number,batch);
-        
+
         } catch (IOException e) {
+            e.printStackTrace();
             //TODO: handle exception
         }
         }

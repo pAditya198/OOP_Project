@@ -115,8 +115,7 @@ public class AdminModule
 		}
 		catch(FileNotFoundException E)
 		{
-			new File("iiitv\\student").mkdir();
-			new File("iiitv\\student\\"+batch).mkdir();
+			new File("iiitv\\student\\"+batch).mkdirs();
 			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
 			DataOutputStream w=new DataOutputStream(fout);
 			w.writeInt(1);
