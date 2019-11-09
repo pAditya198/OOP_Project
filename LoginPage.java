@@ -1,15 +1,3 @@
-
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-import javax.swing.JOptionPane;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InvalidClassException;
-
 import javax.swing.*;
 
 /**
@@ -128,7 +116,7 @@ public class LoginPage extends JFrame {
             /*
              * if (userName.length() == 6) { Admin ob = new Admin(); ob =
              * ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
-             * 
+             *
              * } else { javax.swing.JOptionPane.showMessageDialog(this,
              * "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } } else
              */ if (userName.length() == 9) {
