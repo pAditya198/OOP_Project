@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -70,7 +68,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student Registration Form");
         setBackground(new java.awt.Color(204, 0, 153));
-        setLocation(new java.awt.Point(400, 400));
+        setLocation(new java.awt.Point(600,250));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Personal Details\n "));
 
