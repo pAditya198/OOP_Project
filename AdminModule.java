@@ -101,6 +101,7 @@ public class AdminModule
 	private Student addStudent(int batch)
 	{
 		Student obj=new Student(batch);
+		
 		new StudentRegistration(obj).setVisible(true);
 		return obj;
 	}
