@@ -94,13 +94,7 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         AdminModule ob=new AdminModule();
         int batch = Integer.parseInt(jTextField1.getText());
         int number = Integer.parseInt(jTextField2.getText());
-        try {
             ob.addStudents(number,batch);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            //TODO: handle exception
-        }
         }
 
     /**

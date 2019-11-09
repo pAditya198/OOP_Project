@@ -40,42 +40,71 @@ public class Student implements Serializable
 		BloodGr=BG;
 		password=pass;
 	}
-	public void addCourses(String course[])throws IOException
+	public void addCourses(String course[])
 	{
 		courses=course;
 		courseNo=course.length;
 		writeDetails();
 	}
-	public void writeDetails()throws IOException
+	public void writeDetails()
 	{
-		new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdirs();
-		FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
-		ObjectOutputStream oos = new ObjectOutputStream(fout);
-		oos.writeObject(this);
-		fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\courseNo.iiitv");
-		oos = new ObjectOutputStream(fout);
-		oos.writeObject(courseNo);
-		oos.close();
-		fout.close();
-		fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\course.iiitv");
-		oos = new ObjectOutputStream(fout);
-		oos.writeObject(courses);
-		oos.close();
-		fout.close();
+		try
+		{
+			new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdirs();
+			FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(this);
+			fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\courseNo.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courseNo);
+			oos.close();
+			fout.close();
+			fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\course.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courses);
+			oos.close();
+			fout.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
-	public Student getStudent(int rollNo)throws IOException,ClassNotFoundException
+	public Student getStudent(int rollNo)
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		Student obj=(Student)ois.readObject();
-		return obj;
+		try
+		{
+			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			Student obj=(Student)ois.readObject();
+			return obj;
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			return null;
+		}
 	}
-	public void readDetails(int roll)throws IOException,ClassNotFoundException
+	public void readDetails(int roll)
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+roll+"\\details.iiitv");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		Student obj=(Student)ois.readObject();
-		display(obj);
+		try
+		{
+			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			Student obj=(Student)ois.readObject();
+			display(obj);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	private void display(Student obj)
 	{
@@ -152,4 +181,4 @@ public class Student implements Serializable
 	{
 		return password;
 	}
-}	
+}
