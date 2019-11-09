@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
 
 /**
  *
@@ -14,12 +13,7 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
     /**
      * Creates new form AdminStudentRegistration
      */
-<<<<<<< HEAD
     public StudentRegistration(Student obj) {
-=======
-    public AdminStudentRegistration(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
->>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
         initComponents();
         this.obj=obj;
     }
@@ -94,7 +88,6 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         pack();
     }// </editor-fold>                        
 
-<<<<<<< HEAD
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
@@ -128,11 +121,6 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         obj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
 
     }
-=======
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
->>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
 
     /**
      * @param args the command line arguments
@@ -180,7 +168,6 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -196,9 +183,4 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator1;
     private Student obj;
     // End of variables declaration
-=======
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    // End of variables declaration                   
->>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
 }
