@@ -15,8 +15,10 @@ public class StudentRegistration extends javax.swing.JFrame {
     /**
      * Creates new form Registration
      */
-    public StudentRegistration() {
+    Student studentobj ;
+    public StudentRegistration(Student ob) {
         initComponents();
+        studentobj = ob;
     }
 
     /**
@@ -319,7 +321,7 @@ public class StudentRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Plese Select Programme");
             return;
         }
-        
+        studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
     }                                        
 
     /**
