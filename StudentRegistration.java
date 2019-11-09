@@ -14,8 +14,9 @@ public class StudentRegistration extends javax.swing.JFrame {
     /**
      * Creates new form Registration
      */
-    public StudentRegistration() {
+    public StudentRegistration(Student obj) {
         initComponents();
+        this.obj=obj;
     }
 
     /**
@@ -341,6 +342,7 @@ public class StudentRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Plese Select Programme");
             return;
         }
+        obj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
 
     }
 
@@ -415,5 +417,6 @@ public class StudentRegistration extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private Student obj;
     // End of variables declaration
 }

@@ -101,7 +101,7 @@ public class AdminModule
 	private Student addStudent(int batch)
 	{
 		Student obj=new Student(batch);
-		obj.addDetails();
+		obj.addDetails(obj);
 		return obj;
 	}
 	boolean checkStatus(int batch)throws IOException
