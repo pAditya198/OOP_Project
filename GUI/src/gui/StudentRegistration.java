@@ -68,7 +68,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student Registration Form");
         setBackground(new java.awt.Color(204, 0, 153));
-        setLocation(new java.awt.Point(400, 400));
+        setLocation(new java.awt.Point(600, 250));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Personal Details\n "));
 
@@ -90,7 +90,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         buttonGroup1.add(G2);
         G2.setText("Female");
 
-        DoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+        DoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         BG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
 

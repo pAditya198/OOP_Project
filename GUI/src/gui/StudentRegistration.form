@@ -22,7 +22,7 @@
       <Color blue="99" green="0" red="cc" type="rgb"/>
     </Property>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
-      <Point value="[400, 400]"/>
+      <Point value="[600, 250]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -266,7 +266,7 @@
         <Component class="javax.swing.JFormattedTextField" name="DoB">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="2" type="1"/>
+              <Format subtype="0" type="1"/>
             </Property>
           </Properties>
         </Component>

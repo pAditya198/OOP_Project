@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package gui;
+
 /**
  *
  * @author prate
@@ -33,7 +35,8 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocation(new java.awt.Point(600,100));
+        setLocation(new java.awt.Point(100, 600));
+        setLocationByPlatform(true);
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
@@ -42,6 +45,11 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         jLabel2.setText("Number of Student :");
 
         jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +88,10 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>                        
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
 
     /**
      * @param args the command line arguments
