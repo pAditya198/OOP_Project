@@ -62,7 +62,7 @@ public class AdminModule
 		{
 			students[i]=tempReadStudent(batch,i);
 		}
-		
+
 		for(int i=0;i<number;i++)
 		{
 			for(int j=0;j<number-i-1;j++)
@@ -123,12 +123,8 @@ public class AdminModule
 			return true;
 		}
 	}
-	int addStudents()throws IOException
+	int addStudents(int number,int batch)throws IOException
 	{
-		System.out.print("Enter number of students: ");
-		int number=in.nextInt();
-		System.out.print("Enter batch of students: ");
-		int batch=in.nextInt();
 		if(!checkStatus(batch))
 		{
 			int previous=readNoOfStudents(batch);
@@ -157,6 +153,6 @@ public class AdminModule
 	}
 	void addProfessor()
 	{
-		
+
 	}
 }
