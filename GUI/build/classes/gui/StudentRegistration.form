@@ -266,7 +266,11 @@
         <Component class="javax.swing.JFormattedTextField" name="DoB">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+<<<<<<< HEAD
               <Format subtype="0" type="1"/>
+=======
+              <Format subtype="1" type="1"/>
+>>>>>>> b24f1ab388de9f5dfbf0180f483f2142585ccfda
             </Property>
           </Properties>
         </Component>

@@ -14,9 +14,14 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
     /**
      * Creates new form AdminStudentRegistration
      */
+<<<<<<< HEAD
+    public StudentRegistration(Student obj) {
+=======
     public AdminStudentRegistration(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+>>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
         initComponents();
+        this.obj=obj;
     }
 
     /**
@@ -89,9 +94,45 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
         pack();
     }// </editor-fold>                        
 
+<<<<<<< HEAD
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        System.exit(0);
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String name=Name.getText();
+        String pass=Password.getText();
+        String cont=Contact.getText();
+        String dob = DoB.getText();
+        String programme;
+        String gender;
+        String address = Address.getText();
+        String bloodGroup = BG.getSelectedItem().toString();
+        if(G1.isSelected()){
+            gender = G1.getText();
+        }else if(G2.isSelected()){
+            gender = G2.getText();
+        }else{
+            gender = "Other";
+        }
+        if(P1.isSelected()){
+            programme = P1.getText();
+        }else if(P2.isSelected()){
+            programme = P2.getText();
+        }else if(P3.isSelected()){
+            programme = P3.getText();
+        }else{
+            JOptionPane.showMessageDialog(null,"Plese Select Programme");
+            return;
+        }
+        obj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
+
+    }
+=======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
     }                                        
+>>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
 
     /**
      * @param args the command line arguments
@@ -139,7 +180,25 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+<<<<<<< HEAD
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private Student obj;
+    // End of variables declaration
+=======
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration                   
+>>>>>>> 6e79da82f3503d2abc39fd51a6fdc9a1d17cb4c9
 }
