@@ -3,17 +3,22 @@ import java.io.*;
 public class AdminModule
 {
 	static Scanner in=new Scanner(System.in);
-	private void writeNoOfStudents(int number,int batch)throws IOException
+	private void writeNoOfStudents(int number,int batch)
 	{
-		new File("iiitv\\student\\"+batch).mkdirs();
-		int newno = number+readNoOfStudents(batch);
-		FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\Number.iiitv");
-		DataOutputStream d=new DataOutputStream(fout);
-		d.writeInt(newno);
-		d.close();
-		fout.close();
+		try {
+			new File("iiitv\\student\\"+batch).mkdirs();
+			int newno = number+readNoOfStudents(batch);
+			FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\Number.iiitv");
+			DataOutputStream d=new DataOutputStream(fout);
+			d.writeInt(newno);
+			d.close();
+			fout.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+
 	}
-	public int readNoOfStudents(int batch)throws IOException,FileNotFoundException
+	public int readNoOfStudents(int batch)
 	{
 		try
 		{
@@ -24,11 +29,11 @@ public class AdminModule
 			fin.close();
 			return number;
 		}
-		catch(FileNotFoundException E)
+		catch(IOException e)
 		{
 			return 0;
 		}
-		catch(EOFException E)
+		finally
 		{
 			return 0;
 		}
@@ -49,35 +54,45 @@ public class AdminModule
 		Student obj=(Student)ois.readObject();
 		return obj;
 	}
-	void assignRollNo(int batch)throws IOException,FileNotFoundException,ClassNotFoundException
+	void assignRollNo(int batch)
 	{
-		if(!checkStatus(batch))
-			return;
-		FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
-		DataOutputStream w=new DataOutputStream(fout);
-		w.writeInt(0);
-		int number=readNoOfStudents(batch);
-		Student students[]=new Student[number];
-		for(int i=0;i<number;i++)
-		{
-			students[i]=tempReadStudent(batch,i);
-		}
-
-		for(int i=0;i<number;i++)
-		{
-			for(int j=0;j<number-i-1;j++)
+		try {
+			if(!checkStatus(batch))
+				return;
+			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
+			DataOutputStream w=new DataOutputStream(fout);
+			w.writeInt(0);
+			int number=readNoOfStudents(batch);
+			Student students[]=new Student[number];
+			for(int i=0;i<number;i++)
 			{
-				if(students[j].getName().compareTo(students[j+1].getName())>0)
+				students[i]=tempReadStudent(batch,i);
+			}
+
+			for(int i=0;i<number;i++)
+			{
+				for(int j=0;j<number-i-1;j++)
 				{
-					Student t=students[j];
-					students[j]=students[j+1];
-					students[j+1]=t;
+					if(students[j].getName().compareTo(students[j+1].getName())>0)
+					{
+						Student t=students[j];
+						students[j]=students[j+1];
+						students[j+1]=t;
+					}
 				}
 			}
+			writeRoll(students);
+		} catch(IOException e) {
+			e.printStackTrace();
 		}
-		writeRoll(students);
+
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
 	}
-	private void writeRoll(Student students[])throws IOException
+	private void writeRoll(Student students[])
 	{
 		int i=1;
 		for(Student t:students)
@@ -116,41 +131,44 @@ public class AdminModule
 		}
 		catch(FileNotFoundException E)
 		{
-			new File("iiitv\\student").mkdir();
-			new File("iiitv\\student\\"+batch).mkdir();
+			new File("iiitv\\student\\"+batch).mkdirs();
 			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
 			DataOutputStream w=new DataOutputStream(fout);
 			w.writeInt(1);
 			return true;
 		}
 	}
-	int addStudents(int number,int batch)throws IOException
+	void addStudents(int number,int batch)
 	{
-		if(!checkStatus(batch))
-		{
-			int previous=readNoOfStudents(batch);
-			Student students[]=new Student[number];
-			for(int i=0;i<number;i++)
+		try {
+			if(!checkStatus(batch))
 			{
-				new File("iiitv\\student\\"+batch+"\\"+(batch*100000+i+51000+previous)).mkdir();
-				students[i]=addStudent(batch);
-				students[i].writeRollNo(batch*100000+i+51001+previous);
-				students[i].writeDetails();
+				int previous=readNoOfStudents(batch);
+				Student students[]=new Student[number];
+				for(int i=0;i<number;i++)
+				{
+					new File("iiitv\\student\\"+batch+"\\"+(batch*100000+i+51000+previous)).mkdir();
+					students[i]=addStudent(batch);
+					students[i].writeRollNo(batch*100000+i+51001+previous);
+					students[i].writeDetails();
+				}
+				writeNoOfStudents(number,batch);
 			}
-			writeNoOfStudents(number,batch);
-		}
-		else
-		{
-			int previous=readNoOfStudents(batch);
-			Student students[]=new Student[number];
-			for(int i=0;i<number;i++)
+			else
 			{
-				students[i]=addStudent(batch);
-				tempWriteStudent(students[i],i+previous);
+				int previous=readNoOfStudents(batch);
+				Student students[]=new Student[number];
+				for(int i=0;i<number;i++)
+				{
+					students[i]=addStudent(batch);
+					tempWriteStudent(students[i],i+previous);
+				}
+				writeNoOfStudents(number,batch);
 			}
-			writeNoOfStudents(number,batch);
 		}
-		return batch;
+	 	catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	void addProfessor()
 	{
