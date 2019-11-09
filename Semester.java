@@ -1,11 +1,11 @@
 import java.util.*;
 import java.io.*;
 
-public class Semester 
+public class Semester
 {
     static Scanner in = new Scanner(System.in);
-    public void writeSemester(int rollNo, int sem,String subjectCode) throws IOException 
-	{    
+    public void writeSemester(int rollNo, int sem,String subjectCode) throws IOException
+	{
 		FileWriter cs = null;
 		try
 		{
@@ -22,10 +22,5 @@ public class Semester
 		cs.append(rollNo+",\n");
         cs.flush();
         cs.close();
-    }
-    public static void main(String args[]) throws IOException 
-	{
-        Semester ob = new Semester();
-        ob.writeSemester(201851018,1,"CS201");
     }
 }

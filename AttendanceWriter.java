@@ -15,7 +15,7 @@ public class AttendanceWriter
 				s=i;
 				break;
 			}
-		}  
+		}
 		int x=0,y=0;
 		for(int i=10;i<s.length();i+=2)
 		{
@@ -53,11 +53,5 @@ public class AttendanceWriter
 		}
 		return atte;
 	}
-	public static void main(String args[])throws IOException
-	{
-		AttendanceWriter ob=new AttendanceWriter();
-		System.out.print("Enter Course Code: ");
-		String subjectCode=in.nextLine();
-		ob.getAttendance(201851004,subjectCode);
-	}
-}	
+	p
+}
