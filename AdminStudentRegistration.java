@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -90,10 +92,15 @@ public class AdminStudentRegistration extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         AdminModule ob=new AdminModule();
-        int number = Integer.parseInt(jTTextField1.getText());
-        int batch = Integer.parseInt(jTTextField2.getText());
-        ob.addStudents(number,batch);
-    }
+        int number = Integer.parseInt(jTextField1.getText());
+        int batch = Integer.parseInt(jTextField2.getText());
+        try {
+            ob.addStudents(number,batch);
+        
+        } catch (IOException e) {
+            //TODO: handle exception
+        }
+        }
 
     /**
      * @param args the command line arguments

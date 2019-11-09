@@ -15,7 +15,7 @@ public class StudentRegistration extends javax.swing.JFrame {
     /**
      * Creates new form Registration
      */
-    Student studentobj ;
+    static Student studentobj ;
     public StudentRegistration(Student ob) {
         initComponents();
         studentobj = ob;
@@ -355,7 +355,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentRegistration().setVisible(true);
+                new StudentRegistration(studentobj).setVisible(true);
             }
         });
     }
