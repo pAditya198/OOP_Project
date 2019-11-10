@@ -313,13 +313,10 @@ public class StudentRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Plese Select Programme");
             return;
         }
-        studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
-<<<<<<< HEAD
+        String semester = Sem.getSelectedItem().toString();
+        String[] courses = courseList.getSelectedValuesList();
+        studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
     }
-=======
-
-    }                                        
->>>>>>> 939ac5e51f16b955cb9d12909ff3198c92a95548
 
     private void SemActionPerformed(java.awt.event.ActionEvent evt) {                                    
         
@@ -421,10 +418,6 @@ public class StudentRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-<<<<<<< HEAD
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration
-=======
-    // End of variables declaration                   
->>>>>>> 939ac5e51f16b955cb9d12909ff3198c92a95548
 }
