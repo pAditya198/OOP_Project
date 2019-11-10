@@ -13,6 +13,7 @@ public class Student implements Serializable
 	private String Programme;
 	private String contactNo;
 	private String password;
+	private String Semester;
 	private String courses[];
 	private String gender;
 	private String DoB;
@@ -29,7 +30,7 @@ public class Student implements Serializable
 		status=true;
 		password="";
 	}
-	public void addDetails(String nm, String addr,String DB,String cont, String G,String prog, String BG,String pass)
+	public void addDetails(String nm, String addr,String DB,String cont, String G,String prog, String BG,String pass,String sem)
 	{
 		Name=nm;
 		Addr=addr;
@@ -39,6 +40,7 @@ public class Student implements Serializable
 		Programme=prog;
 		BloodGr=BG;
 		password=pass;
+		Semester=sem
 	}
 	public void addCourses(String course[])
 	{
