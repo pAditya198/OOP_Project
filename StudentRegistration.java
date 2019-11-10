@@ -1,26 +1,26 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author prate
  */
+
+import javax.swing.JOptionPane;
 public class StudentRegistration extends javax.swing.JFrame {
 
     /**
-     * Creates new form Registration
+     * Creates new form StudentRegistration
      */
     static Student studentobj ;
     public StudentRegistration(Student ob) {
         initComponents();
         studentobj = ob;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,9 +31,8 @@ public class StudentRegistration extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jSeparator1 = new javax.swing.JSeparator();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -57,19 +56,19 @@ public class StudentRegistration extends javax.swing.JFrame {
         P3 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        Sem = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        courseList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Student Registration Form");
-        setBackground(new java.awt.Color(204, 0, 153));
-        setLocation(new java.awt.Point(600, 250));
+
+        jButton1.setText("Save Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Personal Details\n "));
 
@@ -214,16 +213,16 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jLabel7.setText("Select Semester : ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" }));
+        Sem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" }));
+        Sem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SemActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Select Courses :");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "1", "2", "3", "4", "5", "6", "7" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(courseList);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -238,7 +237,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                         .addComponent(jLabel8))
                     .addGap(149, 149, 149)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Sem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(102, Short.MAX_VALUE)))
         );
@@ -250,20 +249,13 @@ public class StudentRegistration extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Sem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap()))
         );
-
-        jButton1.setText("Save Details");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,7 +266,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -289,7 +281,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -322,7 +314,42 @@ public class StudentRegistration extends javax.swing.JFrame {
             return;
         }
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass);
+
     }                                        
+
+    private void SemActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        
+        switch (Sem.getSelectedIndex()) {
+            case 0:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS201"}));
+                break;
+            case 1:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201"}));
+                break;
+            case 2:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"EC201"}));
+        
+                break;
+            case 3:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA201"}));
+        
+                break;
+            case 4:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"HS201"}));
+                break;
+               
+            case 5:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS203"}));
+                break;
+               
+            case 6:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS261"}));
+                break;
+            case 7:
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS263"}));
+                break;
+        }
+    }                                   
 
     /**
      * @param args the command line arguments
@@ -350,7 +377,6 @@ public class StudentRegistration extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StudentRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -372,11 +398,11 @@ public class StudentRegistration extends javax.swing.JFrame {
     private javax.swing.JRadioButton P2;
     private javax.swing.JRadioButton P3;
     private javax.swing.JTextField Password;
+    private javax.swing.JComboBox<String> Sem;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JList<String> courseList;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -387,11 +413,9 @@ public class StudentRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration                   
 }
