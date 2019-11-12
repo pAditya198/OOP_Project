@@ -1,6 +1,7 @@
-Dear mayank, 
+Dear ${ROLL_NO},
 
-This is a test message. 
-Have a great weekend! 
+You have attendance below 75% in the following Subjects:
+${SUB_NAME}
 
-Yours Truly
+Yours Truly,
+Administration
