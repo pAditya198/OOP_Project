@@ -17,10 +17,14 @@ public class StudentRegistration extends javax.swing.JFrame {
     /**
      * Creates new form StudentRegistration
      */
-    static Student studentobj ;
-    public StudentRegistration(Student ob) {
-        initComponents();
+    Student studentobj ;
+    int number;
+    boolean par;
+    public StudentRegistration(Student ob,int num,boolean param) {
         studentobj = ob;
+        number=num;
+        par=param;
+        initComponents();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,7 +87,7 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jLabel5.setText("Contact Number :");
 
-        jLabel6.setText("Grender :");
+        jLabel6.setText("Gender :");
 
         buttonGroup1.add(G1);
         G1.setText("Male");
@@ -284,7 +288,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
+        setTitle(number+" ");
         pack();
     }// </editor-fold>
 
@@ -317,24 +321,37 @@ public class StudentRegistration extends javax.swing.JFrame {
         int semester = Integer.parseInt(Sem.getSelectedItem().toString());
         List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
-        exit(0);
-    }
+        studentobj.writeRollNo(number);
+        if(par)
+            studentobj.writeDetails();
+        else
+            studentobj.tempWriteDetails();
+        dispose();
+        /*int response = JOptionPane.showConfirmDialog(null, "Would you like to begin again?",
+        "Repeat?",0);
+if ( response == JOptionPane.NO_OPTION) {
+    int j= 0;
+} else if ( response == JOptionPane.YES_OPTION) {
+dispose();
+} else {
+int j= 0;
+}*/}
 
     private void SemActionPerformed(java.awt.event.ActionEvent evt) {
 
         switch (Sem.getSelectedIndex()) {
             case 0:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA101","PH100","PH160","IT101","IT161","EC100","EC160","HS101"}));
                 break;
             case 1:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA102","PH110","PH170","EE100","EE160","CS102","CS162","HS102"}));
                 break;
             case 2:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"EC201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201","MA201","HS201","CS201","CS203","CS263","EC201","EC261"}));
 
                 break;
             case 3:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA202","HS202","CS202","CS204","CS262","CS266","CS208","CS268","IT202","IT262"}));
 
                 break;
             case 4:
@@ -384,7 +401,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentRegistration(studentobj).setVisible(true);
+                new StudentRegistration(new Student(-1),0,false).setVisible(true);
             }
         });
     }

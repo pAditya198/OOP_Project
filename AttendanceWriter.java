@@ -26,6 +26,19 @@ public class AttendanceWriter
 		System.out.println(((double)x/y*100));
 		return a;
 	}
+	public void writeAttendance(int sem,String subjectCode)
+	{
+		try
+		{
+			String s="cmd /c start /wait cmd.exe /K \" start excel iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv && exit\"";
+			Process p=Runtime.getRuntime().exec(s);
+			p.waitFor();
+		}
+		catch(IOException e)
+		{}
+		catch(InterruptedException e)
+		{}
+	}
 	public List<String> readAttendance(int sem,String subjectCode)
 	{
 		FileReader csvr=null;

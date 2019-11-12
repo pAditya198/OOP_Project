@@ -4,7 +4,10 @@ public class trial
     {
         //AdminModule ob = new AdminModule();
         //ob.assignRollNo(2018);
-        Student a=new Student(2018);
-        a.readDetails(1);
+        //ob.writeNoOfStudents(2, 2019);
+        //System.out.println(ob.readNoOfStudents(2019));
+        AttendanceWriter ob=new AttendanceWriter();
+        ob.writeAttendance(3, "CS201");
+        ob.writeAttendance(3, "SC201");
     }
 }
