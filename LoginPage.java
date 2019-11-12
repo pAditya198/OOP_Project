@@ -112,7 +112,7 @@ public class LoginPage extends JFrame {
         char[] password = P1.getPassword();
         String pas = new String(password);
 
-        try {
+
             /*
              * if (userName.length() == 6) { Admin ob = new Admin(); ob =
              * ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
@@ -149,15 +149,13 @@ public class LoginPage extends JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
                 T1.setText("");
                 P1.setText("");
-            }
-
-        } catch (InvalidClassException e) {
+        }/* catch (InvalidClassException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
