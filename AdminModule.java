@@ -25,19 +25,19 @@ public class AdminModule
 			}
 		}
 	}
-	/*static Scanner in=new Scanner(System.in);
-	private void deleteFolder(String path)
+	static Scanner in=new Scanner(System.in);
+	public void deleteFolder(String path)
 	{
 		File index=new File(path);
 		String[]entries = index.list();
 		for(String s: entries)
 		{
-
+			System.out.println(s);
     		File currentFile = new File(index.getPath(),s);
     		currentFile.delete();
 		}
 		index.delete();
-	}*/
+	}
 	public void writeNoOfStudents(int number,int batch)
 	{
 		try {
@@ -91,13 +91,23 @@ public class AdminModule
 			e.printStackTrace();
 		}
 	}
-	private Student tempReadStudent(int batch,int index)throws IOException,FileNotFoundException,ClassNotFoundException
+	public Student tempReadStudent(int batch,int index)
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+index+"\\details.iiitv");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		Student obj=(Student)ois.readObject();
-		//deleteFolder("iiitv\\student\\"+"\\"+batch+"\\"+index);
-		return obj;
+		try
+		{
+			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+index+"\\details.iiitv");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			Student obj=(Student)ois.readObject();
+			deleteFolder("iiitv\\student\\"+batch+"\\"+index);
+			return obj;
+		}
+		catch(FileNotFoundException e)
+		{}
+		catch(IOException e)
+		{}
+		catch(ClassNotFoundException e)
+		{}
+			return null;
 	}
 	void assignRollNo(int batch)
 	{
@@ -131,11 +141,6 @@ public class AdminModule
 			e.printStackTrace();
 		}
 
-		catch(ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-
 	}
 	private void writeRoll(Student students[])
 	{
@@ -158,25 +163,6 @@ public class AdminModule
 			System.out.println();
 		}
 	}
-	/*private Student addStudent(int batch,int number)
-	{
-		Student obj=new Student(batch);
-		StudentRegistration ob=new StudentRegistration(obj,number);
-		ob.setVisible(true);
-		/*while(true)
-		{
-			try
-			{
-				if(ob.isVisible()==false)
-					break;
-				Thread.sleep(1);
-			}
-			catch(InterruptedException e)
-			{
-			}
-		}
-		return obj;
-	}*/
 	boolean checkStatus(int batch)throws IOException
 	{
 		try
