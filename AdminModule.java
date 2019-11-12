@@ -201,10 +201,11 @@ public class AdminModule
 			if(!checkStatus(batch))
 			{
 				int previous=readNoOfStudents(batch);
-				for(int i=0;i<number;i++)
+				for(int i=number;i>0;i--)
 				{
 					new File("iiitv\\student\\"+batch+"\\"+(batch*100000+i+51000+previous)).mkdir();
 					StudentRegistration ob=new StudentRegistration(new Student(batch),batch*100000+i+51000+previous,true);
+					ob.setVisible(true);
 
 				}
 				writeNoOfStudents(number,batch);
@@ -212,7 +213,7 @@ public class AdminModule
 			else
 			{
 				int previous=readNoOfStudents(batch);
-				for(int i=0;i<number;i++)
+				for(int i=number-1;i>=0;i--)
 				{
 					StudentRegistration ob=new StudentRegistration(new Student(batch),i+previous,false);
 					ob.setVisible(true);

@@ -8,6 +8,6 @@ public class trial
         //System.out.println(ob.readNoOfStudents(2019));
         AttendanceWriter ob=new AttendanceWriter();
         ob.writeAttendance(3, "CS201");
-        ob.writeAttendance(3, "SC201");
+        //ob.writeAttendance(3, "SC201");
     }
 }
