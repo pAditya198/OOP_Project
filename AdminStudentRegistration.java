@@ -88,6 +88,7 @@ public class AdminStudentRegistration extends javax.swing.JFrame {
         int batch = Integer.parseInt(jTextField1.getText());
         int number = Integer.parseInt(jTextField2.getText());
             ob.addStudents(number, batch);
+        dispose();
     }
 
     /**

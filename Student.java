@@ -69,7 +69,10 @@ public class Student implements Serializable
 			oos.writeObject(courses);
 			Semester ob=new Semester();
 			for(String i:courses)
+			{
+				System.out.println(i);
 				ob.writeSemester(rollNo, Semester, i);
+			}
 			oos.close();
 			fout.close();
 		}
@@ -100,7 +103,7 @@ public class Student implements Serializable
 	{
 		try
 		{
-			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
+			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+roll+"\\details.iiitv");
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			Student obj=(Student)ois.readObject();
 			display(obj);
@@ -126,7 +129,7 @@ public class Student implements Serializable
 	}
 	private void displayCourse()
 	{
-		System.out.println("The courses taken by the professor are: ");
+		System.out.println("The courses taken by the Student are: ");
 		int x=1;
 		for(String i:courses)
 			System.out.println((x++)+": "+i);

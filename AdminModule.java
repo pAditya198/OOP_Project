@@ -56,6 +56,7 @@ public class AdminModule
 	}
 	void assignRollNo(int batch)
 	{
+		System.out.println("AssignRollNo working");
 		try {
 			if(!checkStatus(batch))
 				return;
@@ -116,8 +117,7 @@ public class AdminModule
 	private Student addStudent(int batch)
 	{
 		Student obj=new Student(batch);
-
-		new StudentRegistration(obj).setVisible(true);
+		StudentRegistration ob=new StudentRegistration(obj);
 		return obj;
 	}
 	boolean checkStatus(int batch)throws IOException
@@ -162,6 +162,7 @@ public class AdminModule
 				{
 					students[i]=addStudent(batch);
 					tempWriteStudent(students[i],i+previous);
+
 				}
 				writeNoOfStudents(number,batch);
 			}

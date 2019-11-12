@@ -62,8 +62,8 @@ public class StudentRegistration extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         courseList = new javax.swing.JList<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         jButton1.setText("Save Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +317,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         int semester = Integer.parseInt(Sem.getSelectedItem().toString());
         List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
+        exit(0);
     }
 
     private void SemActionPerformed(java.awt.event.ActionEvent evt) {
