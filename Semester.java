@@ -6,7 +6,6 @@ public class Semester
     static Scanner in = new Scanner(System.in);
     public void writeSemester(int rollNo, int sem,String subjectCode) throws IOException
 	{
-        System.out.println("writeSemester running");
 		FileWriter cs = null;
 		try
 		{

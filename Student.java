@@ -51,6 +51,30 @@ public class Student implements Serializable
 		courseNo=course.size();
 		writeDetails();
 	}
+	public void tempWriteDetails()
+	{
+		try
+		{
+			new File("iiitv\\student\\"+batch+"\\"+rollNo).mkdirs();
+			FileOutputStream fout = new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\details.iiitv");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(this);
+			fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\courseNo.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courseNo);
+			oos.close();
+			fout.close();
+			fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\course.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courses);
+			oos.close();
+			fout.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 	public void writeDetails()
 	{
 		try
@@ -70,7 +94,6 @@ public class Student implements Serializable
 			Semester ob=new Semester();
 			for(String i:courses)
 			{
-				System.out.println(i);
 				ob.writeSemester(rollNo, Semester, i);
 			}
 			oos.close();

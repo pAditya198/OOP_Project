@@ -17,10 +17,14 @@ public class StudentRegistration extends javax.swing.JFrame {
     /**
      * Creates new form StudentRegistration
      */
-    static Student studentobj ;
-    public StudentRegistration(Student ob) {
-        initComponents();
+    Student studentobj ;
+    int number;
+    boolean par;
+    public StudentRegistration(Student ob,int num,boolean param) {
         studentobj = ob;
+        number=num;
+        par=param;
+        initComponents();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -284,7 +288,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
+        setTitle(number+" ");
         pack();
     }// </editor-fold>
 
@@ -317,8 +321,21 @@ public class StudentRegistration extends javax.swing.JFrame {
         int semester = Integer.parseInt(Sem.getSelectedItem().toString());
         List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
-        exit(0);
-    }
+        studentobj.writeRollNo(number);
+        if(par)
+            studentobj.writeDetails();
+        else
+            studentobj.tempWriteDetails();
+        dispose();
+        /*int response = JOptionPane.showConfirmDialog(null, "Would you like to begin again?",
+        "Repeat?",0);
+if ( response == JOptionPane.NO_OPTION) {
+    int j= 0;
+} else if ( response == JOptionPane.YES_OPTION) {
+dispose();
+} else {
+int j= 0;
+}*/}
 
     private void SemActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -384,7 +401,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentRegistration(studentobj).setVisible(true);
+                new StudentRegistration(new Student(-1),0,false).setVisible(true);
             }
         });
     }
