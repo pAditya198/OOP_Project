@@ -148,18 +148,7 @@ public class LoginPage extends JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
                 T1.setText("");
                 P1.setText("");
-<<<<<<< HEAD
             }
-=======
-        }/* catch (InvalidClassException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
-
->>>>>>> 1c97904acec8160b0ab5cd1471434e1ec6292b9b
     }
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
