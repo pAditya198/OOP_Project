@@ -26,13 +26,13 @@ public class AdminModule
 		}
 	}
 	static Scanner in=new Scanner(System.in);
-	private void deleteFolder(String path)
+	public void deleteFolder(String path)
 	{
 		File index=new File(path);
 		String[]entries = index.list();
 		for(String s: entries)
 		{
-
+			System.out.println(s);
     		File currentFile = new File(index.getPath(),s);
     		currentFile.delete();
 		}
@@ -95,10 +95,10 @@ public class AdminModule
 	{
 		try
 		{
-			FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+index+"\\details.iiitv");
+			FileInputStream fin = new FileInputStream("iiitv\\student\\"+batch+"\\"+index+"\\details.iiitv");
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			Student obj=(Student)ois.readObject();
-			//deleteFolder("iiitv\\student\\"+"\\"+batch+"\\"+index);
+			deleteFolder("iiitv\\student\\"+batch+"\\"+index);
 			return obj;
 		}
 		catch(FileNotFoundException e)
