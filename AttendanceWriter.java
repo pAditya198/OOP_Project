@@ -3,9 +3,9 @@ import java.io.*;
 public class AttendanceWriter
 {
 	static Scanner in=new Scanner(System.in);
-	public int[] getAttendance(int rollNo, String subjectCode)
+	public int[] getAttendance(int rollNo,int sem, String subjectCode)
 	{
-		List<String> list=readAttendance(subjectCode);
+		List<String> list=readAttendance(sem,subjectCode);
 		String s="";
 		for(String i:list)
 		{
@@ -26,14 +26,14 @@ public class AttendanceWriter
 		System.out.println(((double)x/y*100));
 		return a;
 	}
-	public List<String> readAttendance(String subjectCode)
+	public List<String> readAttendance(int sem,String subjectCode)
 	{
 		FileReader csvr=null;
 		BufferedReader csv=null;
 		List<String> atte=new ArrayList<String>();
 		try
 		{
-			csvr=new FileReader(subjectCode+".csv");
+			csvr=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+".csv");
 			csv=new BufferedReader(csvr);
 			csv.readLine();
 			String x="";
@@ -53,5 +53,4 @@ public class AttendanceWriter
 		}
 		return atte;
 	}
-	p
 }

@@ -13,8 +13,8 @@ public class Student implements Serializable
 	private String Programme;
 	private String contactNo;
 	private String password;
-	private String Semester;
-	private String courses[];
+	private int Semester;
+	private List<String> courses;
 	private String gender;
 	private String DoB;
 	private int courseNo;
@@ -30,7 +30,7 @@ public class Student implements Serializable
 		status=true;
 		password="";
 	}
-	public void addDetails(String nm, String addr,String DB,String cont, String G,String prog, String BG,String pass,String sem,String[] cour)
+	public void addDetails(String nm, String addr,String DB,String cont, String G,String prog, String BG,String pass,int sems,List<String> cour)
 	{
 		Name=nm;
 		Addr=addr;
@@ -40,14 +40,15 @@ public class Student implements Serializable
 		Programme=prog;
 		BloodGr=BG;
 		password=pass;
-		Semester=sem;
+		Semester=sems;
 		courses = cour;
+		courseNo=courses.size();
 	}
-	public void addCourses(String course[],String Sem)
+	public void addCourses(List<String> course,int Sem)
 	{
-		Semester - Sem; 
+		Semester = Sem;
 		courses=course;
-		courseNo=course.length;
+		courseNo=course.size();
 		writeDetails();
 	}
 	public void writeDetails()
@@ -66,6 +67,9 @@ public class Student implements Serializable
 			fout=new FileOutputStream("iiitv\\student\\"+batch+"\\"+rollNo+"\\course.iiitv");
 			oos = new ObjectOutputStream(fout);
 			oos.writeObject(courses);
+			Semester ob=new Semester();
+			for(String i:courses)
+				ob.writeSemester(rollNo, Semester, i);
 			oos.close();
 			fout.close();
 		}
@@ -161,7 +165,7 @@ public class Student implements Serializable
 	{
 		return Addr;
 	}
-	String[] getCourses()
+	List<String> getCourses()
 	{
 		return courses;
 	}

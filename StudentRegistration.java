@@ -11,6 +11,7 @@
  */
 
 import javax.swing.JOptionPane;
+import java.util.*;
 public class StudentRegistration extends javax.swing.JFrame {
 
     /**
@@ -213,7 +214,7 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jLabel7.setText("Select Semester : ");
 
-        Sem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" }));
+        Sem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
         Sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SemActionPerformed(evt);
@@ -313,13 +314,13 @@ public class StudentRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Plese Select Programme");
             return;
         }
-        String semester = Sem.getSelectedItem().toString();
-        String[] courses = courseList.getSelectedValuesList();
+        int semester = Integer.parseInt(Sem.getSelectedItem().toString());
+        List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
     }
 
-    private void SemActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        
+    private void SemActionPerformed(java.awt.event.ActionEvent evt) {
+
         switch (Sem.getSelectedIndex()) {
             case 0:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS201"}));
@@ -329,20 +330,20 @@ public class StudentRegistration extends javax.swing.JFrame {
                 break;
             case 2:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"EC201"}));
-        
+
                 break;
             case 3:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA201"}));
-        
+
                 break;
             case 4:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"HS201"}));
                 break;
-               
+
             case 5:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS203"}));
                 break;
-               
+
             case 6:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS261"}));
                 break;
@@ -350,7 +351,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS263"}));
                 break;
         }
-    }                                   
+    }
 
     /**
      * @param args the command line arguments
