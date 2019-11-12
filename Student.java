@@ -117,10 +117,14 @@ public class Student implements Serializable
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			return null;
+		catch(ClassNotFoundException e){
+			e.printStackTrace();
 		}
+		// finally
+		// {
+		// 	return null;
+		// }
+		return null;
 	}
 	public void readDetails(int roll)
 	{
@@ -160,6 +164,10 @@ public class Student implements Serializable
 	public int getBatch()
 	{
 		return batch;
+	}
+	public String getDoB()
+	{
+		return DoB;
 	}
 	public boolean getStatus()
 	{
