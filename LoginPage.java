@@ -112,27 +112,26 @@ public class LoginPage extends JFrame {
         char[] password = P1.getPassword();
         String pas = new String(password);
 
-        try {
-            /*
-             * if (userName.length() == 6) { Admin ob = new Admin(); ob =
-             * ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
-             *
-             * } else { javax.swing.JOptionPane.showMessageDialog(this,
-             * "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } } else
-             */ if (userName.length() == 9) {
+            
+            //  if (userName.length() == 6) { Admin ob = new Admin(); ob =
+            //  ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
+             
+            //  } else { javax.swing.JOptionPane.showMessageDialog(this,
+            //  "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } } else
+            if (userName.length() == 9) {
                 int batch = Integer.parseInt(userName.substring(0, 4));
-
                 Student ob = new Student(batch);
                 int rollNum = Integer.parseInt(userName);
-                // javax.swing.JOptionPane.showMessageDialog(this, "Hii" + rollNum);
                 Student ob1 = ob.getStudent(rollNum);
                 ob1.readDetails(rollNum);
-                javax.swing.JOptionPane.showMessageDialog(this, "Hii" + ob1.getRollNo());
-
+                // String pass = password;
+                javax.swing.JOptionPane.showMessageDialog(this, "Hii" + ob1.getPass());
+                // javax.swing.JOptionPane.showMessageDialog(this, "Hii" + ob1.getRollNo());
                 if (pas.equals(ob1.getPass())) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Hii " + ob1.getName() + "!");
                     StudentGUI Frame = new StudentGUI(ob1);
-                    Frame.setVisible(true);
-
+                Frame.setVisible(true);
+                dispose();
                 } else {
                     javax.swing.JOptionPane.showMessageDialog(this, "Wrong username or password! !!!");
                     T1.setText("");
@@ -150,15 +149,6 @@ public class LoginPage extends JFrame {
                 T1.setText("");
                 P1.setText("");
             }
-
-        } catch (InvalidClassException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
