@@ -5,13 +5,13 @@ public class Driver
 	public static void main(String args[])throws IOException,ClassNotFoundException
 	{
 		
-		//AdminModule ob=new Admin();
+		AdminModule ob=new AdminModule();
 		//int batch=ob.addStudents();
 		//ob.assignRollNo(2018);
-		//ob.displayStudents(2018);
-		Student ob=new Student(2018);
+		ob.displayStudents(2018);
+		/*Student ob=new Student(2018);
 		Student ob1=ob.getStudent(201851002);
-		
+		System.out.println(ob1.getRollNo());
 		/*TeacherModule ob=new TeacherModule();
 		//ob.addSubject();
 		//ob.updateAttendance("HS201");
