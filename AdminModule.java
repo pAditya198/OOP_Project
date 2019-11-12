@@ -26,6 +26,17 @@ public class AdminModule
 		}
 	}
 	static Scanner in=new Scanner(System.in);
+	private void deleteFolder(String path)
+	{
+		File index=new File(path);
+		String[]entries = index.list();
+		for(String s: entries)
+		{
+    		File currentFile = new File(index.getPath(),s);
+    		currentFile.delete();
+		}
+		index.delete();
+	}
 	public void writeNoOfStudents(int number,int batch)
 	{
 		try {
@@ -84,6 +95,7 @@ public class AdminModule
 		FileInputStream fin = new FileInputStream("iiitv\\student\\"+"\\"+batch+"\\"+index+"\\details.iiitv");
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		Student obj=(Student)ois.readObject();
+		deleteFolder("iiitv\\student\\"+"\\"+batch+"\\"+index+"\\details.iiitv");
 		return obj;
 	}
 	void assignRollNo(int batch)

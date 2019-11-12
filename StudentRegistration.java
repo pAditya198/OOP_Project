@@ -87,7 +87,7 @@ public class StudentRegistration extends javax.swing.JFrame {
 
         jLabel5.setText("Contact Number :");
 
-        jLabel6.setText("Grender :");
+        jLabel6.setText("Gender :");
 
         buttonGroup1.add(G1);
         G1.setText("Male");
@@ -341,17 +341,17 @@ int j= 0;
 
         switch (Sem.getSelectedIndex()) {
             case 0:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA101","PH100","PH160","IT101","IT161","EC100","EC160","HS101"}));
                 break;
             case 1:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA102","PH110","PH170","EE100","EE160","CS102","CS162","HS102"}));
                 break;
             case 2:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"EC201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201","MA201","HS201","CS201","CS203","CS263","EC201","EC261"}));
 
                 break;
             case 3:
-                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA201"}));
+                courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA202","HS202","CS202","CS204","CS262","CS266","CS208","CS268","IT202","IT262"}));
 
                 break;
             case 4:
