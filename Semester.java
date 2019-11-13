@@ -9,13 +9,13 @@ public class Semester
 		FileWriter cs = null;
 		try
 		{
-			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+".csv");
-			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+".csv",true);
+			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
+			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
 		}
 		catch(FileNotFoundException e)
 		{
 			new File("iiitv/Semester/"+sem).mkdirs();
-			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+".csv",true);
+			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
 			cs.append("ID,\n");
 		}
 		cs.append(rollNo+",\n");
@@ -24,7 +24,7 @@ public class Semester
     }
     public void sortRollNo(int sem, String subjectCode)
     {
-        try(FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+".csv"))
+        try(FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv"))
         {
             BufferedReader csv=new BufferedReader(f);
             String header = csv.readLine();
@@ -34,7 +34,7 @@ public class Semester
                 ID.add(x);
             sort(ID);
             csv.close();
-            FileWriter wri=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+".csv");
+            FileWriter wri=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
             wri.append(header+"\n");
             for(String i:ID)
                 wri.append(i+"\n");

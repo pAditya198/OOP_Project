@@ -215,6 +215,12 @@ public class AdminModule
 	}
 	void addProfessor()
 	{
-
+		try
+		{
+			//ProfessorRegistration ob=new ProgressorRegistration(new Professor())
+			//ob.setVisible(true);
+		}
+		catch(RuntimeException e)
+		{}
 	}
 }

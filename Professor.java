@@ -5,7 +5,7 @@ public class Professor implements Serializable
 	private String name;
 	private int UID;
 	private String details;
-	private String courses[];
+	private List<String> courses;
 	private int courseNo;
 	private String contactNo;
 	private String password;
@@ -15,22 +15,18 @@ public class Professor implements Serializable
 		UID=0;
 		details="";
 	}
-	public void addDetails()
+	public void addDetails(String nm,String det, List<String> cour, String contact, String pass)
 	{
-		Scanner in=new Scanner(System.in);
-		System.out.print("Enter Name: ");
-		name=in.nextLine();
-		System.out.print("Enter details: ");
-		details=in.nextLine();
-		System.out.print("Enter Contact Number: ");
-		contactNo=in.nextLine();
-		System.out.println("Enter password: ");
-		password=in.nextLine();
+		name=nm;
+		details=det;
+		contactNo=contact;
+		password=pass;
 		UID=createUID(name);
+		assignCourses(courses);
 	}
-	public void assignCourses(String course[])throws IOException
+	public void assignCourses(List<String> course)
 	{
-		courseNo=course.length;
+		courseNo=course.size();
 		courses=course;
 		writeDetails();
 	}
@@ -42,35 +38,52 @@ public class Professor implements Serializable
 			x+=b;
 		return x;
 	}
-	public void writeDetails()throws IOException
+	public void writeDetails()
 	{
-		new File("iiitv\\professor\\"+UID).mkdirs();
-		FileOutputStream fout = new FileOutputStream("iiitv\\professor\\"+UID+"\\details.iiitv");
-		ObjectOutputStream oos = new ObjectOutputStream(fout);
-		oos.writeObject(this);
-		oos.close();
-		fout.close();
-		fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\courseNo.iiitv");
-		oos = new ObjectOutputStream(fout);
-		oos.writeObject(courseNo);
-		oos.close();
-		fout.close();
-		fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\course.iiitv");
-		oos = new ObjectOutputStream(fout);
-		oos.writeObject(courses);
-		oos.close();
-		fout.close();
+		try
+		{
+			new File("iiitv\\professor\\"+UID).mkdirs();
+			FileOutputStream fout = new FileOutputStream("iiitv\\professor\\"+UID+"\\details.iiitv");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(this);
+			oos.close();
+			fout.close();
+			fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\courseNo.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courseNo);
+			oos.close();
+			fout.close();
+			fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\course.iiitv");
+			oos = new ObjectOutputStream(fout);
+			oos.writeObject(courses);
+			oos.close();
+			fout.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
-	public Professor getProfessor(int UIDi)throws IOException,ClassNotFoundException
+	public Professor getProfessor(int UIDi)
 	{
-		FileInputStream fin = new FileInputStream("iiitv\\professor\\"+UIDi+"\\details.iiitv");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		Professor obj=(Professor)ois.readObject();
-		ois.close();
-		fin.close();
-		return obj;
+		try
+		{
+			FileInputStream fin = new FileInputStream("iiitv\\professor\\"+UIDi+"\\details.iiitv");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			Professor obj=(Professor)ois.readObject();
+			ois.close();
+			fin.close();
+			return obj;
+		}
+		catch(FileNotFoundException e)
+		{}
+		catch(IOException e)
+		{}
+		catch(ClassNotFoundException e)
+		{}
+		return null;
 	}
-	public void readDetails(int UIDi)throws IOException,ClassNotFoundException
+	/*public void readDetails(int UIDi)throws IOException,ClassNotFoundException
 	{
 		FileInputStream fin = new FileInputStream("iiitv\\professor\\"+UIDi+"\\details.iiitv");
 		ObjectInputStream ois = new ObjectInputStream(fin);
@@ -94,7 +107,7 @@ public class Professor implements Serializable
 		int x=1;
 		for(String i:courses)
 			System.out.println((x++)+": "+i);
-	}
+	}*/
 	String getName()
 	{
 		return name;
@@ -111,7 +124,7 @@ public class Professor implements Serializable
 	{
 		return courseNo;
 	}
-	String[] getCourses()
+	List<String> getCourses()
 	{
 		return courses;
 	}
@@ -124,4 +137,3 @@ public class Professor implements Serializable
 		System.out.println(UID);
 	}
 }
-	
