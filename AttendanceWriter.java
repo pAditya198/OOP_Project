@@ -33,7 +33,7 @@ public class AttendanceWriter
 			Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + "" + " -R");
 			PR.waitFor();
 			//String s="cmd /c start /wait cmd.exe /K \" start excel iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv && exit\"";
-			String s="cmd /c start /wait excel iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv";
+			String s="cmd /c start /wait excel iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv";
 			Process p=Runtime.getRuntime().exec(s);
 			p.waitFor();
 			System.out.println("Making read only");
@@ -50,6 +50,7 @@ public class AttendanceWriter
 		try
 		{
 			String s="cmd /c start /wait excel iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv";
+			System.out.println(s);
 			Process p=Runtime.getRuntime().exec(s);
 			p.waitFor();
 		}
