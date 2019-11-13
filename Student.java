@@ -173,6 +173,11 @@ public class Student implements Serializable
 	{
 		return status;
 	}
+	
+	public int getSem()
+	{
+		return Semester;
+	}
 	int getCourseNo()
 	{
 		return courseNo;

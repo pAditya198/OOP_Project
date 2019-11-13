@@ -125,7 +125,6 @@ public class LoginPage extends JFrame {
                 Student ob1 = ob.getStudent(rollNum);
                 ob1.readDetails(rollNum);
                 // String pass = password;
-                javax.swing.JOptionPane.showMessageDialog(this, "Hii" + ob1.getPass());
                 // javax.swing.JOptionPane.showMessageDialog(this, "Hii" + ob1.getRollNo());
                 if (pas.equals(ob1.getPass())) {
                     javax.swing.JOptionPane.showMessageDialog(this, "Hii " + ob1.getName() + "!");
@@ -169,7 +168,7 @@ public class LoginPage extends JFrame {
         /*
          * If Nimbus (introduced in Java SE 6) is not available, stay with the default
          * look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * http://download.oracle.com/javase/txutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
