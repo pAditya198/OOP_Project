@@ -2,29 +2,6 @@ import java.util.*;
 import java.io.*;
 public class AdminModule
 {
-	static class MyRunnable implements Runnable
-	{
-		private StudentRegistration e;
-		MyRunnable(StudentRegistration e)
-		{
-			this.e=e;
-		}
-		public void run()
-		{
-			while(true)
-			{
-				if(e.isVisible())
-				System.out.println();
-				try{
-					Thread.sleep(1000);
-				}
-				catch(InterruptedException e)
-				{
-					break;
-				}
-			}
-		}
-	}
 	static Scanner in=new Scanner(System.in);
 	public void deleteFolder(String path)
 	{
@@ -99,6 +76,8 @@ public class AdminModule
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			Student obj=(Student)ois.readObject();
 			deleteFolder("iiitv\\student\\"+batch+"\\"+index);
+			ois.close();
+			fin.close();
 			return obj;
 		}
 		catch(FileNotFoundException e)

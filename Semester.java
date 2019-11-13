@@ -26,7 +26,7 @@ public class Semester
     }
     public void sortRollNo(int sem, String subjectCode)
     {
-        PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " -R");
+        Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " -R");
         try(FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv"))
         {
             BufferedReader csv=new BufferedReader(f);
@@ -48,7 +48,7 @@ public class Semester
         catch(IOException e)
         {
         }
-        PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " +R");
+        Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " +R");
     }
     private void sort(List<String> ID)
     {
