@@ -88,6 +88,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         jLabel5.setText("Contact Number :");
 
         jLabel6.setText("Gender :");
+        courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA101","PH100","PH160","IT101","IT161","EC100","EC160","HS101"}));
 
         buttonGroup1.add(G1);
         G1.setText("Male");
@@ -289,6 +290,7 @@ public class StudentRegistration extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         setTitle(number+" ");
+        setUndecorated(true);
         pack();
     }// </editor-fold>
 
@@ -348,20 +350,16 @@ int j= 0;
                 break;
             case 2:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201","MA201","HS201","CS201","CS203","CS263","EC201","EC261"}));
-
                 break;
             case 3:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA202","HS202","CS202","CS204","CS262","CS266","CS208","CS268","IT202","IT262"}));
-
                 break;
             case 4:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"HS201"}));
                 break;
-
             case 5:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS203"}));
                 break;
-
             case 6:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS261"}));
                 break;
