@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.*; 
 import javax.swing.JOptionPane;
 public class TeacherRegistration extends javax.swing.JFrame {
-    Professor professorObj = new  Professor(); 
+    static Professor professorObj = new  Professor(); 
     /**
      * Creates new form TeacherRegistration
      */
@@ -322,6 +322,7 @@ public class TeacherRegistration extends javax.swing.JFrame {
 	String contactNo =  Contact.getText();
     String password = Password.getText();
     professorObj.addDetails(name,address,qualification,areaofInterest,gender, dob, selectedCourse,contactNo,password);
+    dispose();
     }                                     
 
     private void SemesterListValueChanged(javax.swing.event.ListSelectionEvent evt) {                                          
@@ -397,7 +398,7 @@ public class TeacherRegistration extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TeacherRegistration().setVisible(true);
+                new TeacherRegistration(professorObj).setVisible(true);
             }
         });
     }

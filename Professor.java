@@ -17,7 +17,28 @@ public class Professor implements Serializable
 	{
 		name="";
 		UID=0;
-		details="";
+		// details="";
+	}
+	public String getname() {
+		return name;
+	}
+	public int getUID() {
+		return UID;
+	}
+	public String getaddress() {
+		return address;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public String getAreaofInterest() {
+		return areaofInterest;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public String getDob() {
+		return dob;
 	}
 	public void addDetails(String nm,String add, String quali,String aoi, String gen,String dob, List<String> cour, String contact, String pass)
 	{
@@ -27,11 +48,11 @@ public class Professor implements Serializable
 		qualification = quali;
 		address = add;
 		contactNo=contact;
-		thsi.dob = dob;
+		this.dob = dob;
 		password=pass;
 		UID=createUID(name);
 		courses = cour;
-		courseNo=course.size();
+		courseNo=courses.size();
 	}
 	public void assignCourses(List<String> course)
 	{
@@ -121,10 +142,10 @@ public class Professor implements Serializable
 	{
 		return name;
 	}
-	String getDetails()
-	{
-		return details;
-	}
+	// String getDetails()
+	// {
+	// 	return details;
+	// }
 	String getContactNo()
 	{
 		return contactNo;
@@ -141,8 +162,8 @@ public class Professor implements Serializable
 	{
 		return password;
 	}
-	void getUID()
-	{
-		System.out.println(UID);
-	}
+	// void getUID()
+	// {
+	// 	System.out.println(UID);
+	// }
 }
