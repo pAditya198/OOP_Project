@@ -112,7 +112,12 @@ public class LoginPage extends JFrame {
         char[] password = P1.getPassword();
         String pas = new String(password);
 
-            
+            if(userName.equals("admin"))
+			{
+				AdminStudentRegistration ob=new AdminStudentRegistration();
+				ob.setVisible(true);
+				dispose();
+			}
             //  if (userName.length() == 6) { Admin ob = new Admin(); ob =
             //  ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
              
@@ -137,7 +142,7 @@ public class LoginPage extends JFrame {
                     P1.setText("");
                 }
             } /*
-               * else if (userName.length() == 6) { Professor ob = new Professor(); ob =
+               * else if (userName.length() == 4 { Professor ob = new Professor(); ob =
                * ob.getProfessor(userName); if (pas.equals(ob.getPass)) { } else {
                * javax.swing.JOptionPane.showMessageDialog(this,
                * "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } }
