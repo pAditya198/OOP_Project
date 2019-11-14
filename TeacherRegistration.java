@@ -13,6 +13,12 @@ import java.io.*;
 import java.util.*; 
 import javax.swing.JOptionPane;
 public class TeacherRegistration extends javax.swing.JFrame {
+    static class MyComparator implements Comparator<String> { 
+        public int compare(String x, String y) 
+        { 
+            return x.charAt(2) - y.charAt(2); 
+        } 
+    } 
     int x;
     int y;
     ArrayList<ArrayList<Integer>> ob1=new ArrayList<ArrayList<Integer>>();
@@ -322,12 +328,13 @@ public class TeacherRegistration extends javax.swing.JFrame {
         }else if(G2.isSelected()){
             gender = "Female";
         }else{
-            JOptionPane.showMessageDialog(null,"Plese Select Programme");
+            JOptionPane.showMessageDialog(null,"Plese Select Gender");
             return;
         }
 	String dob = DoB.getText();
 	String contactNo =  Contact.getText();
     String password = Password.getText();
+    Collections.sort(selectedCourse, new MyComparator());
     professorObj.addDetails(name,address,qualification,areaofInterest,gender, dob, selectedCourse,contactNo,password);
     professorObj.writeDetails();
     dispose();
@@ -382,7 +389,6 @@ public class TeacherRegistration extends javax.swing.JFrame {
             return;
         else
             y=courseList.getSelectedIndex();
-        ob1.get(SemesterList.getSelectedIndex()).add(y);
         System.out.println(courseList.getSelectedIndex());
         String course="";
         try
@@ -392,14 +398,16 @@ public class TeacherRegistration extends javax.swing.JFrame {
         }
         catch(NullPointerException e)
         {
+            //JOptionPane.showMessageDialog(null,"Already Selected this course" ,"Alert",JOptionPane.OK_OPTION);
             System.out.println("NullPointer");
         }
         int input = JOptionPane.showConfirmDialog(null,"Would like to add " + course ,"Selected Course",JOptionPane.YES_NO_OPTION);
         if(input == 0){
             selectedCourse.add(course);
+            ob1.get(SemesterList.getSelectedIndex()).add(y);
             Output.setText(selectedCourse.toString());
-            //courseList.clearSelection();
         }
+            //courseList.clearSelection();
         //courseList.setSelectedIndex(-1);
         //SemesterListValueChanged();
     }                                       
