@@ -4,7 +4,11 @@ public class Professor implements Serializable
 {
 	private String name;
 	private int UID;
-	private String details;
+	private String address;
+	private String qualification;
+	private String areaofInterest;
+	private String gender;
+	private String dob;
 	private List<String> courses;
 	private int courseNo;
 	private String contactNo;
@@ -15,14 +19,19 @@ public class Professor implements Serializable
 		UID=0;
 		details="";
 	}
-	public void addDetails(String nm,String det, List<String> cour, String contact, String pass)
+	public void addDetails(String nm,String add, String quali,String aoi, String gen,String dob, List<String> cour, String contact, String pass)
 	{
 		name=nm;
-		details=det;
+		areaofInterest = aoi;
+		gender = gen;
+		qualification = quali;
+		address = add;
 		contactNo=contact;
+		thsi.dob = dob;
 		password=pass;
 		UID=createUID(name);
-		assignCourses(courses);
+		courses = cour;
+		courseNo=course.size();
 	}
 	public void assignCourses(List<String> course)
 	{
