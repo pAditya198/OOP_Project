@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
-public class Professor implements Serializable
-{
+
+public class Professor implements Serializable {
 	private String name;
 	private int UID;
 	private String address;
@@ -13,157 +13,168 @@ public class Professor implements Serializable
 	private int courseNo;
 	private String contactNo;
 	private String password;
-	Professor()
-	{
-		name="";
-		UID=0;
+
+	Professor() {
+		// name="";
+		// UID=0;
 		// details="";
 	}
+
 	public String getname() {
 		return name;
 	}
+
 	public int getUID() {
 		return UID;
 	}
+
 	public String getaddress() {
 		return address;
 	}
+
 	public String getQualification() {
 		return qualification;
 	}
+
 	public String getAreaofInterest() {
 		return areaofInterest;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public String getDob() {
 		return dob;
 	}
-	public void addDetails(String nm,String add, String quali,String aoi, String gen,String dob, List<String> cour, String contact, String pass)
-	{
-		name=nm;
+
+	public void addDetails(String nm, String add, String quali, String aoi, String gen, String dob, List<String> cour,
+			String contact, String pass) {
+		name = nm;
 		areaofInterest = aoi;
 		gender = gen;
 		qualification = quali;
 		address = add;
-		contactNo=contact;
+		contactNo = contact;
 		this.dob = dob;
-		password=pass;
-		UID=createUID(name);
+		password = pass;
+		UID = createUID(name);
 		courses = cour;
-		courseNo=courses.size();
+		courseNo = courses.size();
 	}
-	public void assignCourses(List<String> course)
-	{
-		courseNo=course.size();
-		courses=course;
+
+	public void assignCourses(List<String> course) {
+		courseNo = course.size();
+		courses = course;
 		writeDetails();
 	}
-	int createUID(String nm)
-	{
-		byte a[]=nm.getBytes();
-		int x=0;
-		for(byte b:a)
-			x+=b;
+
+	int createUID(String nm) {
+		byte a[] = nm.getBytes();
+		int x = 0;
+		for (byte b : a)
+			x += b;
 		return x;
 	}
-	public void writeDetails()
-	{
-		try
-		{
-			new File("iiitv\\professor\\"+UID).mkdirs();
-			FileOutputStream fout = new FileOutputStream("iiitv\\professor\\"+UID+"\\details.iiitv");
+
+	public void writeDetails() {
+		try {
+			new File("iiitv\\professor\\" + UID).mkdirs();
+			FileOutputStream fout = new FileOutputStream("iiitv\\professor\\" + UID + "\\details.iiitv");
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(this);
 			oos.close();
 			fout.close();
-			fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\courseNo.iiitv");
+			fout = new FileOutputStream("iiitv\\professor\\" + UID + "\\courseNo.iiitv");
 			oos = new ObjectOutputStream(fout);
 			oos.writeObject(courseNo);
 			oos.close();
 			fout.close();
-			fout=new FileOutputStream("iiitv\\professor\\"+UID+"\\course.iiitv");
+			fout = new FileOutputStream("iiitv\\professor\\" + UID + "\\course.iiitv");
 			oos = new ObjectOutputStream(fout);
 			oos.writeObject(courses);
 			oos.close();
 			fout.close();
-		}
-		catch(IOException e)
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Professor getProfessor(int UIDi)
-	{
-		try
-		{
-			FileInputStream fin = new FileInputStream("iiitv\\professor\\"+UIDi+"\\details.iiitv");
+
+	public Professor getProfessor(int UIDi) {
+		try {
+			FileInputStream fin = new FileInputStream("iiitv\\professor\\" + UIDi + "\\details.iiitv");
 			ObjectInputStream ois = new ObjectInputStream(fin);
-			Professor obj=(Professor)ois.readObject();
+			Professor obj = (Professor) ois.readObject();
 			ois.close();
 			fin.close();
 			return obj;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		catch(FileNotFoundException e)
-		{}
-		catch(IOException e)
-		{}
-		catch(ClassNotFoundException e)
-		{}
 		return null;
 	}
-	/*public void readDetails(int UIDi)throws IOException,ClassNotFoundException
-	{
-		FileInputStream fin = new FileInputStream("iiitv\\professor\\"+UIDi+"\\details.iiitv");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		Professor obj=(Professor)ois.readObject();
-		display(obj,UIDi);
-		ois.close();
-		fin.close();
+
+	public void readDetails(int UIDi) {
+		try {
+			FileInputStream fin = new FileInputStream("iiitv\\professor\\" + UIDi + "\\details.iiitv");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			Professor obj = (Professor) ois.readObject();
+			display(obj, UIDi);
+			ois.close();
+			fin.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
-	private void display(Professor obj,int UIDi)
-	{
-		System.out.println("Name : "+obj.getName());
-		System.out.println("Details : "+obj.getDetails());
-		System.out.println("Contact Number : "+obj.getContactNo());
-		System.out.println("Unique ID : "+UIDi);
-		System.out.println("Number of courses : "+obj.getCourseNo());
+
+	private void display(Professor obj, int UIDi) {
+		System.out.println("Name : " + obj.getName());
+		// System.out.println("Details : " + obj.getDetails());
+		System.out.println("Contact Number : " + obj.getContactNo());
+		System.out.println("Unique ID : " + UIDi);
+		System.out.println("Number of courses : " + obj.getCourseNo());
 		obj.displayCourse();
 	}
-	private void displayCourse()
-	{
+
+	private void displayCourse() {
 		System.out.println("The courses taken by the professor are: ");
-		int x=1;
-		for(String i:courses)
-			System.out.println((x++)+": "+i);
-	}*/
-	String getName()
-	{
+		int x = 1;
+		for (String i : courses)
+			System.out.println((x++) + ": " + i);
+	}
+
+	String getName() {
 		return name;
 	}
+
 	// String getDetails()
 	// {
-	// 	return details;
+	// return details;
 	// }
-	String getContactNo()
-	{
+	String getContactNo() {
 		return contactNo;
 	}
-	int getCourseNo()
-	{
+
+	int getCourseNo() {
 		return courseNo;
 	}
-	List<String> getCourses()
-	{
+
+	List<String> getCourses() {
 		return courses;
 	}
-	String getPass()
-	{
+
+	String getPass() {
 		return password;
 	}
 	// void getUID()
 	// {
-	// 	System.out.println(UID);
+	// System.out.println(UID);
 	// }
 }

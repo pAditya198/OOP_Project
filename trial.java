@@ -19,5 +19,6 @@ public class trial
         Professor ob = new Professor();
         TeacherRegistration obj = new TeacherRegistration(ob);
         obj.setVisible(true);
+        //ob.readDetails(1818);
     }
 }

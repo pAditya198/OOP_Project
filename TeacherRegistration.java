@@ -13,12 +13,19 @@ import java.io.*;
 import java.util.*; 
 import javax.swing.JOptionPane;
 public class TeacherRegistration extends javax.swing.JFrame {
+    int x;
+    int y;
+    ArrayList<ArrayList<Integer>> ob1=new ArrayList<ArrayList<Integer>>();
     static Professor professorObj = new  Professor(); 
     /**
      * Creates new form TeacherRegistration
      */
     public TeacherRegistration(Professor ob) {
         professorObj = ob;
+        x=-1;
+        y=-2;
+        for(int i=0;i<8;i++)
+            ob1.add(new ArrayList<Integer>());
         initComponents();
     }
    List<String> selectedCourse = new ArrayList<String>();
@@ -322,11 +329,18 @@ public class TeacherRegistration extends javax.swing.JFrame {
 	String contactNo =  Contact.getText();
     String password = Password.getText();
     professorObj.addDetails(name,address,qualification,areaofInterest,gender, dob, selectedCourse,contactNo,password);
+    professorObj.writeDetails();
     dispose();
     }                                     
 
     private void SemesterListValueChanged(javax.swing.event.ListSelectionEvent evt) {                                          
-
+        //courseList.setSelectedIndex(-1);
+        // courseList.clearSelection();
+        if(SemesterList.getSelectedIndex()==x)
+            return;
+        else
+            x=SemesterList.getSelectedIndex(); 
+        // System.out.println(courseList.getSelectedIndex());
       switch (SemesterList.getSelectedIndex()) {
             case 0:
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA101","PH100","PH160","IT101","IT161","EC100","EC160","HS101"}));
@@ -353,15 +367,41 @@ public class TeacherRegistration extends javax.swing.JFrame {
                 courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS490","IT490"}));
                 break;
         }
-    }                                         
+        //SemesterList.clearSelection();
+    }   
+                                          
 
     private void courseListValueChanged(javax.swing.event.ListSelectionEvent evt) {                                        
-        String course  = courseList.getSelectedValue().toString();
-         int input = JOptionPane.showConfirmDialog(null,"Whould like to add " + course ,"Selcted Course",JOptionPane.YES_NO_OPTION);
-         if(input == 0){
-             selectedCourse.add(course);
-             Output.setText(selectedCourse.toString());
-         }
+        
+        if(ob1.get(SemesterList.getSelectedIndex()).contains(courseList.getSelectedIndex()))
+        {
+            JOptionPane.showMessageDialog(null,"Already Selected this course" ,"Alert",JOptionPane.OK_OPTION);
+            return;
+        }
+        else if(courseList.getSelectedIndex()==-1)
+            return;
+        else
+            y=courseList.getSelectedIndex();
+        ob1.get(SemesterList.getSelectedIndex()).add(y);
+        System.out.println(courseList.getSelectedIndex());
+        String course="";
+        try
+        {
+            course  = courseList.getSelectedValue().toString();        
+            
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("NullPointer");
+        }
+        int input = JOptionPane.showConfirmDialog(null,"Would like to add " + course ,"Selected Course",JOptionPane.YES_NO_OPTION);
+        if(input == 0){
+            selectedCourse.add(course);
+            Output.setText(selectedCourse.toString());
+            //courseList.clearSelection();
+        }
+        //courseList.setSelectedIndex(-1);
+        //SemesterListValueChanged();
     }                                       
 
     private void OutputActionPerformed(java.awt.event.ActionEvent evt) {                                       
