@@ -328,7 +328,7 @@ public class TeacherRegistration extends javax.swing.JFrame {
         }else if(G2.isSelected()){
             gender = "Female";
         }else{
-            JOptionPane.showMessageDialog(null,"Plese Select Gender");
+            JOptionPane.showMessageDialog(null,"Plese Select Gender","ALERT",JOptionPane.OK_OPTION);
             return;
         }
 	String dob = DoB.getText();
