@@ -484,5 +484,7 @@ public class TeacherRegistration extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JButton uploadAttendance;
+    private javax.swing.JButton uploadMarks;
     // End of variables declaration                   
 }

@@ -2,8 +2,8 @@ public class trial
 {
     public static void main(String args[])
     {
-        AdminModule ob = new AdminModule();
-        ob.assignRollNo(2018);
+        // AdminModule ob = new AdminModule();
+        // ob.assignRollNo(2018);
         //ob.writeNoOfStudents(2, 2019);
         /*AdminModule ob = new AdminModule();
         ob.deleteFolder("iiitv\\student\\"+2018+"\\1");
