@@ -318,7 +318,7 @@ public class TeacherRegistration extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        String name = Name.getText();
+    String name = Name.getText();
 	String address = Address.getText();
 	String qualification  =  Qualification.getText();
 	String areaofInterest = AoI.getText();

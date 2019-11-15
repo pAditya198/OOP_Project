@@ -2,8 +2,8 @@ public class trial
 {
     public static void main(String args[])
     {
-        // AdminModule ob = new AdminModule();
-        // ob.assignRollNo(2018);
+        AdminModule ob = new AdminModule();
+        ob.assignRollNo(2018);
         //ob.writeNoOfStudents(2, 2019);
         /*AdminModule ob = new AdminModule();
         ob.deleteFolder("iiitv\\student\\"+2018+"\\1");
@@ -16,9 +16,9 @@ public class trial
         // AttendanceWriter ob=new AttendanceWriter();
         // ob.writeAttendance(3, "CS201");
         //ob.writeAttendance(3, "SC201");
-        Professor ob = new Professor();
-        TeacherRegistration obj = new TeacherRegistration(ob);
-        obj.setVisible(true);
+        // Professor ob = new Professor();
+        // TeacherRegistration obj = new TeacherRegistration(ob);
+        // obj.setVisible(true);
         //ob.readDetails(1299);
     }
 }

@@ -6,7 +6,8 @@ public class Semester
     static Scanner in = new Scanner(System.in);
     public void writeSemester(int rollNo, int sem,String subjectCode) throws IOException
 	{
-		FileWriter cs = null;
+        FileWriter cs = null;
+        Process PR = null;
 		try
 		{
 			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
@@ -26,9 +27,9 @@ public class Semester
     }
     public void sortRollNo(int sem, String subjectCode)
     {
-        Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " -R");
         try(FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv"))
         {
+            Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " -R");
             BufferedReader csv=new BufferedReader(f);
             String header = csv.readLine();
             List<String> ID= new ArrayList<String>();
@@ -44,11 +45,12 @@ public class Semester
         }
         catch(FileNotFoundException e)
         {
+            e.printStackTrace();
         }
         catch(IOException e)
         {
+            e.printStackTrace();
         }
-        Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " +R");
     }
     private void sort(List<String> ID)
     {

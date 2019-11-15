@@ -196,8 +196,8 @@ public class AdminModule
 	{
 		try
 		{
-			// ProfessorRegistration ob=new ProgressorRegistration(new Professor())
-			// ob.setVisible(true);
+			TeacherRegistration ob=new TeacherRegistration(new Professor());
+			ob.setVisible(true);
 		}
 		catch(RuntimeException e)
 		{}
