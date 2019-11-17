@@ -511,7 +511,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
     }
 
     private void uploadAttendanceActionPerformed(java.awt.event.ActionEvent evt) {
-        String s = SemesterList2.getSelectedValue();
+        String s = SemesterList.getSelectedValue();
         int sem = (int) s.charAt(9) -'0';
         String courseCode=courseList.getSelectedValue();
         AttendanceWriter ob=new AttendanceWriter();
@@ -521,7 +521,12 @@ public class ProfessorGUI extends javax.swing.JFrame {
     }
 
     private void uploadMarksActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        String s = SemesterList2.getSelectedValue();
+        int sem = (int) s.charAt(9) -'0';
+        String courseCode=courseList2.getSelectedValue();
+        MarksWriter ob=new MarksWriter();
+        ob.writeMarks(sem,courseCode);
+
     }
 
     /**

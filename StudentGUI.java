@@ -63,7 +63,7 @@ public class StudentGUI extends javax.swing.JFrame {
                 jLabel10 = new javax.swing.JLabel();
                 Gender = new javax.swing.JTextField(studentobj.getGender());
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                 setTitle("Student Details");
 
                 jPanel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -497,7 +497,9 @@ public class StudentGUI extends javax.swing.JFrame {
         }
 
         private void ShowMarksMouseClicked(java.awt.event.MouseEvent evt) {
-                // TODO add your handling code here:
+                MarksWriter ob = new MarksWriter();
+                String course = jComboBox1.getSelectedItem().toString();
+                ob.openMarks(studentobj.getSem(), course);
         }
 
         private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
