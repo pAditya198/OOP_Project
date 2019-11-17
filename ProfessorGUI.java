@@ -18,7 +18,8 @@ public class ProfessorGUI extends javax.swing.JFrame {
     int y;
     ArrayList<ArrayList<String>> ob1 = new ArrayList<ArrayList<String>>();
     static Professor professorObj = new Professor();
-
+    ArrayList<String> semArrayList = new ArrayList<String>();
+    
     /**
      * Creates new form test
      */
@@ -40,10 +41,14 @@ public class ProfessorGUI extends javax.swing.JFrame {
             int sem=i.charAt(8)-'0';
             ob1.get(sem-1).add(i.substring(0,5));
         }
+        int j=1;
         for(ArrayList<String> i:ob1)
         {
             String z[]=i.toArray(new String[0]);
+            if(i.size()!=0)
+            semArrayList.add("Semester " +j);
             System.out.println(i.toString());
+            j++;
         }
     }
 
@@ -239,11 +244,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(courseList);
 
         SemesterList.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        SemesterList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        SemesterList.setModel(new javax.swing.DefaultComboBoxModel<>(semArrayList.toArray(new String[0])));
         SemesterList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         SemesterList.setToolTipText("");
         SemesterList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -317,11 +318,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
         jScrollPane8.setViewportView(courseList2);
 
         SemesterList2.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        SemesterList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Semester 1", "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6", "Semester 7", "Semester 8" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        SemesterList2.setModel(new javax.swing.DefaultComboBoxModel<>(semArrayList.toArray(new String[0])));
         SemesterList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         SemesterList2.setToolTipText("");
         SemesterList2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -430,7 +427,10 @@ public class ProfessorGUI extends javax.swing.JFrame {
     }// </editor-fold>                        
     private void SemesterListValueChanged(javax.swing.event.ListSelectionEvent evt) {
         ArrayList<String> ob;
-        switch (SemesterList.getSelectedIndex()) {
+        String s = SemesterList.getSelectedValue();
+        int n = s.charAt(9) - '0';
+        n--;
+        switch (n) {
             case 0:
             ob=ob1.get(0);
             courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
@@ -470,11 +470,49 @@ public class ProfessorGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
     private void SemesterList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {
-        // TODO add your handling code here:
+        ArrayList<String> ob;
+        String s = SemesterList2.getSelectedValue();
+        int n = (int) s.charAt(9) -'0';
+        n--;
+        switch (n) {
+            case 0:
+            ob=ob1.get(0);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 1:
+            ob=ob1.get(1);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 2:
+            ob=ob1.get(2);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 3:
+            ob=ob1.get(3);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 4:
+            ob=ob1.get(4);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 5:
+            ob=ob1.get(5);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 6:
+            ob=ob1.get(6);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+            case 7:
+            ob=ob1.get(7);
+            courseList2.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
+            break;
+        }
     }
 
     private void uploadAttendanceActionPerformed(java.awt.event.ActionEvent evt) {
-        int sem=SemesterList.getSelectedIndex()+1;
+        String s = SemesterList2.getSelectedValue();
+        int sem = (int) s.charAt(9) -'0';
         String courseCode=courseList.getSelectedValue();
         AttendanceWriter ob=new AttendanceWriter();
         ob.writeAttendance(sem,courseCode);
