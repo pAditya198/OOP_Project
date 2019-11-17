@@ -12,24 +12,35 @@ public class Semester
 		{
 			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
 			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
-            PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " +R");
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
+			PR.waitFor();
 		}
 		catch(FileNotFoundException e)
 		{
 			new File("iiitv/Semester/"+sem).mkdirs();
 			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
-            PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " +R");
-			cs.append("ID,\n");
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
+            try
+            {
+                PR.waitFor();
+            }
+            catch(InterruptedException f)
+            {}
+            cs.append("ID,\n");
 		}
+        catch(InterruptedException e)
+        {}
 		cs.append(rollNo+",\n");
         cs.flush();
         cs.close();
     }
     public void sortRollNo(int sem, String subjectCode)
     {
+        Process PR=null;
         try(FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv"))
         {
-            Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv" + "" + " -R");
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " -R");
+            PR.waitFor();
             BufferedReader csv=new BufferedReader(f);
             String header = csv.readLine();
             List<String> ID= new ArrayList<String>();
@@ -42,6 +53,8 @@ public class Semester
             wri.append(header+"\n");
             for(String i:ID)
                 wri.append(i+"\n");
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
+			PR.waitFor();
         }
         catch(FileNotFoundException e)
         {
@@ -51,6 +64,8 @@ public class Semester
         {
             e.printStackTrace();
         }
+        catch(InterruptedException e)
+        {}
     }
     private void sort(List<String> ID)
     {

@@ -408,7 +408,7 @@ public class ProfessorRegistration extends javax.swing.JFrame {
             for(String i:selectedCourse)
                 s+=i.substring(0,5)+" ";
             Collections.sort(selectedCourse, new MyComparator());
-            Output.setText(selectedCourse.toString());
+            Output.setText(s);
         }
             //courseList.clearSelection();
         //courseList.setSelectedIndex(-1);

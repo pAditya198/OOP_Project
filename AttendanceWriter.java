@@ -30,14 +30,13 @@ public class AttendanceWriter
 	{
 		try
 		{
-			Process PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + "" + " -R");
+			Process PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " -R");
 			PR.waitFor();
-			//String s="cmd /c start /wait cmd.exe /K \" start excel iiitv\\Semester\\"+sem+"\\"+subjectCode+".csv && exit\"";
 			String s="cmd /c start /wait excel iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv";
 			Process p=Runtime.getRuntime().exec(s);
 			p.waitFor();
 			System.out.println("Making read only");
-			PR=Runtime.getRuntime().exec("attrib " + "" +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + "" + " +R");
+			PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
 			PR.waitFor();
 		}
 		catch(IOException e)
@@ -49,7 +48,7 @@ public class AttendanceWriter
 	{
 		try
 		{
-			String s="cmd /c start /wait excel iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv";
+			String s="cmd /c start /wait excel /r iiitv\\Semester\\"+sem+"\\"+subjectCode+"Attendance.csv";
 			System.out.println(s);
 			Process p=Runtime.getRuntime().exec(s);
 			p.waitFor();
@@ -86,4 +85,8 @@ public class AttendanceWriter
 		}
 		return atte;
 	}
+	/*public void findDefaulters(int sem,String subjectCode)
+	{
+		List<
+	}*/
 }
