@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class ProfessorGUI extends javax.swing.JFrame {
     int x;
     int y;
-    ArrayList<ArrayList<Integer>> ob1 = new ArrayList<ArrayList<Integer>>();
+    ArrayList<ArrayList<String>> ob1 = new ArrayList<ArrayList<String>>();
     static Professor professorObj = new Professor();
 
     /**
@@ -26,8 +26,23 @@ public class ProfessorGUI extends javax.swing.JFrame {
         x = -1;
         y = -2;
         for (int i = 0; i < 8; i++)
-            ob1.add(new ArrayList<Integer>());
+            ob1.add(new ArrayList<String>());
+        changeArrayList();
         initComponents();
+    }
+    private void changeArrayList()
+    {
+        List<String> x=professorObj.getCourses();
+        for(String i: x)
+        {
+            int sem=i.charAt(8)-'0';
+            ob1.get(sem-1).add(i.substring(0,5));
+        }
+        for(ArrayList<String> i:ob1)
+        {
+            String z[]=i.toArray(new String[0]);
+            System.out.println(i.toString());
+        }
     }
 
     /**
@@ -95,7 +110,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
         Name.setEditable(false);
 
         DoB.setEditable(false);
-        
+
         jLabel9.setText("Address :");
 
         Address.setEditable(false);
@@ -352,54 +367,62 @@ public class ProfessorGUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-                                    
+    }// </editor-fold>
 
-    private void SemesterListValueChanged(javax.swing.event.ListSelectionEvent evt) {                                          
 
+    private void SemesterListValueChanged(javax.swing.event.ListSelectionEvent evt) {
+        ArrayList<String> ob;
         switch (SemesterList.getSelectedIndex()) {
             case 0:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA101","PH100","PH160","IT101","IT161","EC100","EC160","HS101"}));
+            ob=ob1.get(0);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 1:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA102","PH110","PH170","EE100","EE160","CS102","CS162","HS102"}));
+            ob=ob1.get(1);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 2:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"SC201","MA201","HS201","CS201","CS203","CS263","EC201","EC261"}));
+            ob=ob1.get(2);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 3:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"MA202","HS202","CS202","CS204","CS262","CS266","CS208","CS268","IT202","IT262"}));
+            ob=ob1.get(3);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 4:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS301","CS361","CS303","CS363","CS305","CS391","IT301","IT361","IT391"}));
+            ob=ob1.get(4);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 5:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS302","CS362","CS304","CS364","IT302","IT362","IT304"}));
+            ob=ob1.get(5);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 6:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS401","CS461","CS491","IT401","IT461","IT491"}));
+            ob=ob1.get(6);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
             case 7:
-            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"CS490","IT490"}));
+            ob=ob1.get(7);
+            courseList.setModel(new javax.swing.DefaultComboBoxModel<>(ob.toArray(new String[0])));
             break;
         }
-    }                                         
+    }
 
-    private void courseList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {                                         
+    private void courseList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {
         // TODO add your handling code here:
-    }                                        
+    }
 
-    private void SemesterList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {                                           
+    private void SemesterList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {
         // TODO add your handling code here:
-    }                                          
+    }
 
-    private void uploadAttendanceActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void uploadAttendanceActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                
+    }
 
-    private void uploadMarksActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void uploadMarksActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
+    }
 
     /**
      * @param args the command line arguments
@@ -408,7 +431,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -437,7 +460,7 @@ public class ProfessorGUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify
     private javax.swing.JTextArea Address;
     private javax.swing.JTextArea AoI;
     private javax.swing.JTextField Contact;
@@ -475,5 +498,5 @@ public class ProfessorGUI extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton uploadAttendance;
     private javax.swing.JButton uploadMarks;
-    // End of variables declaration                   
+    // End of variables declaration
 }
