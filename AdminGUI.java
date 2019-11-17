@@ -1,14 +1,15 @@
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
-
 /**
  *
  * @author prate
  */
+
 public class AdminGUI extends javax.swing.JFrame {
 
     /**
@@ -55,7 +56,7 @@ public class AdminGUI extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Admin Profile");
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/folder/270x270-male-avatar.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("270x270-male-avatar.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -217,11 +218,12 @@ public class AdminGUI extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void StudentRegistrationMouseClicked(java.awt.event.MouseEvent evt) {                                                 
-        // TODO add your handling code here:
+     AdminStudentRegistration ob = new AdminStudentRegistration();
+        ob.setVisible(true);
     }                                                
 
     private void ProfessorRegistrataionMouseClicked(java.awt.event.MouseEvent evt) {                                                    
-        // TODO add your handling code here:
+        new ProfessorRegistration(new Professor()).setVisible(true);
     }                                                   
 
     private void MailMouseClicked(java.awt.event.MouseEvent evt) {                                  
@@ -233,7 +235,10 @@ public class AdminGUI extends javax.swing.JFrame {
     }                                               
 
     private void AssignMouseClicked(java.awt.event.MouseEvent evt) {                                    
-        // TODO add your handling code here:
+        AdminModule ob = new AdminModule();
+        int batch = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter Batch"));
+        ob.assignRollNo(batch);
+
     }                                   
 
     private void MarksMouseClicked(java.awt.event.MouseEvent evt) {                                   

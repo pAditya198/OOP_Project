@@ -1,4 +1,7 @@
 import java.util.*;
+
+import javax.swing.JOptionPane;
+
 import java.io.*;
 public class AdminModule
 {
@@ -91,8 +94,10 @@ public class AdminModule
 	void assignRollNo(int batch)
 	{
 		try {
-			if(!checkStatus(batch))
+			if(!checkStatus(batch)){
+				JOptionPane.showMessageDialog(null,"Roll number already assigned");
 				return;
+			}
 			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
 			DataOutputStream w=new DataOutputStream(fout);
 			w.writeInt(0);
@@ -116,6 +121,7 @@ public class AdminModule
 				}
 			}
 			writeRoll(students);
+			JOptionPane.showMessageDialog(null,"Roll Number has been assigned");
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
