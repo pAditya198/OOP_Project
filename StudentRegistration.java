@@ -320,6 +320,7 @@ public class StudentRegistration extends javax.swing.JFrame {
             return;
         }
         int semester = Integer.parseInt(Sem.getSelectedItem().toString());
+        System.out.println(semester);
         List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name,address,dob,cont,gender,programme,bloodGroup,pass,semester,courses);
         studentobj.writeRollNo(number);
