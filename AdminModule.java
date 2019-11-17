@@ -94,9 +94,18 @@ public class AdminModule
 	void assignRollNo(int batch)
 	{
 		try {
-			if(!checkStatus(batch)){
+			if(!checkStatus1(batch))
+			{
+				JOptionPane.showMessageDialog(null,"Batch not found");
+				return;
+			}
+			else if(!checkStatus(batch)){
 				JOptionPane.showMessageDialog(null,"Roll number already assigned");
 				return;
+			}
+			else
+			{
+
 			}
 			FileOutputStream fout=new FileOutputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
 			DataOutputStream w=new DataOutputStream(fout);
@@ -147,6 +156,20 @@ public class AdminModule
 			t.readDetails(batch*100000+i+51001);
 			System.out.println();
 		}
+	}
+	boolean checkStatus1(int batch)throws IOException
+	{
+		System.out.println(true);
+		try
+		{
+			FileInputStream fin=new FileInputStream("iiitv\\student\\"+batch+"\\Status.iiitv");
+			DataInputStream r=new DataInputStream(fin);
+		}
+		catch(FileNotFoundException E)
+		{
+			return false;
+		}
+		return true;
 	}
 	boolean checkStatus(int batch)throws IOException
 	{

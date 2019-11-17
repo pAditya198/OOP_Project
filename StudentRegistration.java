@@ -418,7 +418,12 @@ public class StudentRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Plese Select Programme");
             return;
         }
+<<<<<<< HEAD
         int semester = Sem.getSelectedIndex() + 1;
+=======
+        int semester = Integer.parseInt(Sem.getSelectedItem().toString());
+        System.out.println(semester);
+>>>>>>> a6389e2e68722c5ebb6567ebd88fa347d11903cc
         List<String> courses = courseList.getSelectedValuesList();
         studentobj.addDetails(name, address, dob, cont, gender, programme, bloodGroup, pass, semester, courses);
         studentobj.writeRollNo(number);

@@ -114,7 +114,7 @@ public class AttendanceWriter
 			for(String s:def)
 			{
 				String rollno=s.substring(0,9);
-				String fin=rollno + " "+ rollno+"@iiitvadodara.ac.in "+subjectCode;
+				String fin=rollno + " "+ rollno+"@iiitvadodara.ac.in "+subjectCode+"\n";
 				f.write(fin);
 				f.close();
 			}
