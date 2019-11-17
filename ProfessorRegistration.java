@@ -12,7 +12,7 @@
 import java.io.*; 
 import java.util.*; 
 import javax.swing.JOptionPane;
-public class TeacherRegistration extends javax.swing.JFrame {
+public class ProfessorRegistration extends javax.swing.JFrame {
     static class MyComparator implements Comparator<String> { 
         public int compare(String x, String y) 
         { 
@@ -24,9 +24,9 @@ public class TeacherRegistration extends javax.swing.JFrame {
     ArrayList<ArrayList<Integer>> ob1=new ArrayList<ArrayList<Integer>>();
     static Professor professorObj = new  Professor(); 
     /**
-     * Creates new form TeacherRegistration
+     * Creates new form ProfessorRegistration
      */
-    public TeacherRegistration(Professor ob) {
+    public ProfessorRegistration(Professor ob) {
         professorObj = ob;
         x=-1;
         y=-2;
@@ -433,20 +433,20 @@ public class TeacherRegistration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeacherRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfessorRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeacherRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfessorRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeacherRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfessorRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeacherRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfessorRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TeacherRegistration(professorObj).setVisible(true);
+                new ProfessorRegistration(professorObj).setVisible(true);
             }
         });
     }
