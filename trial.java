@@ -19,7 +19,7 @@ public class trial
         // Professor ob = new Professor();
         // ProfessorRegistration obj = new ProfessorRegistration(ob);
         // obj.setVisible(true);
-        //ob.readDetails(1299);
+        // ob.readDetails(1299);
         AdminStudentRegistration ob = new AdminStudentRegistration();
         ob.setVisible(true);
     }
