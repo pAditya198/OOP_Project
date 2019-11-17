@@ -417,6 +417,11 @@ public class ProfessorGUI extends javax.swing.JFrame {
     }
 
     private void uploadAttendanceActionPerformed(java.awt.event.ActionEvent evt) {
+        int sem=SemesterList.getSelectedIndex()+1;
+        String courseCode=courseList.getSelectedValue();
+        AttendanceWriter ob=new AttendanceWriter();
+        ob.writeAttendance(sem,courseCode);
+
         // TODO add your handling code here:
     }
 
