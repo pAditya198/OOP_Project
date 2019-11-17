@@ -16,9 +16,9 @@ public class trial
         // AttendanceWriter ob=new AttendanceWriter();
         // ob.writeAttendance(3, "CS201");
         //ob.writeAttendance(3, "SC201");
-        // Professor ob = new Professor();
-        // ProfessorRegistration obj = new ProfessorRegistration(ob);
-        // obj.setVisible(true);
+        Professor ob = new Professor();
+        TeacherRegistration obj = new TeacherRegistration(ob);
+        obj.setVisible(true);
         //ob.readDetails(1299);
     }
 }
