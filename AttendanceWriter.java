@@ -43,6 +43,7 @@ public class AttendanceWriter
 		{}
 		catch(InterruptedException e)
 		{}
+		findDefaulters(sem, subjectCode);
 	}
 	public void openAttendance(int sem,String subjectCode)
 	{
@@ -71,7 +72,6 @@ public class AttendanceWriter
 			String x="";
 			while((x=csv.readLine())!=null)
 			{
-				System.out.println(x);
 				atte.add(x);
 			}
 			csv.close();
@@ -85,8 +85,49 @@ public class AttendanceWriter
 		}
 		return atte;
 	}
-	/*public void findDefaulters(int sem,String subjectCode)
+	public void findDefaulters(int sem,String subjectCode)
 	{
-		List<
-	}*/
+		System.out.println("Finding Defaulters");
+		List<String> x=readAttendance(sem, subjectCode);
+		String head=x.get(0);
+		int total=0;
+		for(int i=10;i<head.length();i+=2)
+			total++;
+		if(total < 5)
+			return;
+		List <String> def=new ArrayList<String>();
+		for(String m:x)
+		{
+			int count=0;
+			for(int j=10;j<m.length();j+=2)
+			{
+				if(m.charAt(j)-48==1)
+					count++;
+			}
+			double z = ((double)count/total)*100;
+			if(z < 75)
+				def.add(m);
+		}
+		try
+		{
+			FileWriter f=new FileWriter("MailingScript\\mycontacts.txt",true);
+			for(String s:def)
+			{
+				String rollno=s.substring(0,9);
+				String fin=rollno + " "+ rollno+"@iiitvadodara.ac.in "+subjectCode;
+				f.write(fin);
+				f.close();
+			}
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("FileNotFoundException");
+			e.printStackTrace();
+		}
+		catch(IOException e)
+		{
+			System.out.println("IOException");
+			e.printStackTrace();
+		}
+	}
 }
