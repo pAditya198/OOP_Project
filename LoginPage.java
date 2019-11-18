@@ -185,7 +185,7 @@ public class LoginPage extends javax.swing.JFrame {
         String pas = new String(password);
 
         if (userName.equals("admin")) {
-            AdminStudentRegistration ob = new AdminStudentRegistration();
+            AdminGUI ob=new AdminGUI();
             ob.setVisible(true);
             dispose();
         }
@@ -194,7 +194,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         // } else { javax.swing.JOptionPane.showMessageDialog(this,
         // "Wrong username or password! !!!"); T1.setText(""); P1.setText(""); } } else
-        if (userName.length() == 9) {
+        else if (userName.length() == 9) {
             int batch = Integer.parseInt(userName.substring(0, 4));
             Student ob = new Student(batch);
             int rollNum = Integer.parseInt(userName);
