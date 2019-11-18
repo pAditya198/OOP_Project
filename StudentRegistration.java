@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+//Tanmay
 /**
  *
  * @author prate
@@ -395,7 +395,6 @@ int j= 0;
             java.util.logging.Logger.getLogger(StudentRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -403,7 +402,6 @@ int j= 0;
             }
         });
     }
-
     // Variables declaration - do not modify
     private javax.swing.JTextArea Address;
     private javax.swing.JComboBox<String> BG;
