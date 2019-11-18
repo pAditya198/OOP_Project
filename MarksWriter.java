@@ -6,8 +6,7 @@ public class MarksWriter {
 
     public void writeMarks(int sem, String subjectCode) {
         try {
-            Process PR = Runtime.getRuntime()
-                    .exec("attrib " + "iiitv\\Semester\\" + sem + "\\" + subjectCode + "Marks.csv" + " -R");
+            Process PR = Runtime.getRuntime().exec("attrib " + "iiitv\\Semester\\" + sem + "\\" + subjectCode + "Marks.csv" + " -R");
             PR.waitFor();
             String s = "cmd /c start /wait excel iiitv\\Semester\\" + sem + "\\" + subjectCode + "Marks.csv";
             Process p = Runtime.getRuntime().exec(s);

@@ -243,8 +243,13 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void EditStudentProfileMouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
-    }
+        String roll = JOptionPane.showInputDialog(null,"Enter Student ID");
+        int batch  = Integer.parseInt(roll.substring(0,4));
+        int rollnum = Integer.parseInt(roll);
+        Student ob = new Student(batch);
+        Student obj = ob.getStudent(rollnum);
+        new StudentEditProfile(obj).setVisible(true);
+       }
 
     private void AssignMouseClicked(java.awt.event.MouseEvent evt) {
         AdminModule ob = new AdminModule();
