@@ -10,24 +10,23 @@ public class Semester
         Process PR = null;
 		try
 		{
+<<<<<<< HEAD
             PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\emester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " -R");
 			PR.waitFor();
 			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
 			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
             PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\emester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
+=======
+            FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " -R");
+>>>>>>> d8628c56b2238a09853a03263d3b6ab52d930e98
 			PR.waitFor();
+            cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
 		}
 		catch(FileNotFoundException e)
 		{
 			new File("iiitv/Semester/"+sem).mkdirs();
 			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
-            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
-            try
-            {
-                PR.waitFor();
-            }
-            catch(InterruptedException f)
-            {}
             cs.append("ID,\n");
 		}
         catch(InterruptedException e)
@@ -35,6 +34,13 @@ public class Semester
 		cs.append(rollNo+",\n");
         cs.flush();
         cs.close();
+        PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\semester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
+        try
+        {
+            PR.waitFor();
+        }
+        catch(InterruptedException f)
+        {}
     }
     public void sortRollNo(int sem, String subjectCode)
     {

@@ -44,7 +44,6 @@ public class AdminGUI extends javax.swing.JFrame {
         Marks = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
         setLocation(new java.awt.Point(0, 0));
         setPreferredSize(new java.awt.Dimension(800, 400));
         setResizable(false);
