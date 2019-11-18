@@ -164,7 +164,6 @@ public class LoginPage extends javax.swing.JFrame {
         String pas = new String(password);
 
         if (userName.equals("admin")) {
-<<<<<<< HEAD
             if (pas.equals("admin")) {
                 AdminGUI ob = new AdminGUI();
                 ob.setVisible(true);
@@ -174,11 +173,6 @@ public class LoginPage extends javax.swing.JFrame {
                 T1.setText("");
                 P1.setText("");
             }
-=======
-            AdminGUI ob=new AdminGUI();
-            ob.setVisible(true);
-            dispose();
->>>>>>> d8628c56b2238a09853a03263d3b6ab52d930e98
         }
         // if (userName.length() == 6) { Admin ob = new Admin(); ob =
         // ob.getAdmin(userName); if (pas.equals(ob.getPass)) {
