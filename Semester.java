@@ -10,6 +10,8 @@ public class Semester
         Process PR = null;
 		try
 		{
+            PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\emester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " -R");
+			PR.waitFor();
 			FileReader f=new FileReader("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv");
 			cs=new FileWriter("iiitv/semester/"+sem+"/"+subjectCode+"Attendance.csv",true);
             PR=Runtime.getRuntime().exec("attrib " +  "iiitv\\emester\\"+sem+"\\"+subjectCode+"Attendance.csv" + " +R");
