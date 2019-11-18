@@ -332,7 +332,7 @@ public class ProfessorRegistration extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Teacher");
+        jLabel4.setText("Professor");
 
         jLabel13.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
